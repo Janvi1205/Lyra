@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #050505;
+}
+
+.hero-bg {
+  background:
+    radial-gradient(
+      70% 79% at 50% 50%,
+      rgba(76, 11, 24, 0.55),
+      rgba(80, 10, 25, 0.35),
+      rgba(20, 5, 10, 0.15),
+      rgba(5, 5, 5, 1)
+    );
+  background-color: #050505;
+}
+.glass-navbar {
+  
+  top: 0;
+  z-index: 50;
+
+  background: rgba(10, 10, 10, 0.55); /* matte black glass */
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+  
+}
+
+
+
+
+.hero-light {
+  position: absolute;
+  top: 50%;
+  left: 78%;
+  width: 500px;
+  height: 450px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.15),
+    transparent 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
