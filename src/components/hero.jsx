@@ -1,16 +1,62 @@
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
 
 const Hero = () => {
 
-    return (
-        <div className="hero-bg h-screen">
-            <div className="ml-220 -mt-10">
-                <div className="hero-light " />
 
-                <img className="h-160  relative z-10" src="/Lipstick.png" alt="" />
-            </div>
+  const comp = useRef(null);
+  const imageref = useRef(null);
 
-        </div>
+  useLayoutEffect(() => {
 
-    )
-}
+    let ctx = gsap.context(() => {
+      const v = gsap.timeline();
+
+     
+      v.from("#hero-p p", {
+        x: -1000,
+        stagger: 0.1,
+        duration: 0.9,
+        ease: "power4.out",
+      });
+
+      v.fromTo(
+        imageref.current,
+        { x: 100, autoAlpha: 0 },
+        {
+          x: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: "power4.out",
+        }
+      );
+    }, comp); 
+
+   
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div ref={comp} className="hero-bg h-screen overflow-x-hidden flex">
+
+      <div id="hero-p" className="mt-15">
+        <p className="text-7xl text-[#dededed6] ml-40 mt-20">Elegance Meets</p>
+        <p className="text-7xl text-[#dededed6] ml-70 mt-3">Confidence in</p>
+        <p className="text-7xl text-[#dededed6] ml-100 mt-3">Every Shade</p>
+      </div>
+
+      <div className="ml-20 -mt-10">
+        <div className="hero-light" />
+        <img
+          ref={imageref}
+          className="h-160 relative z-10"
+          src="/Lipstick.png"
+          alt=""
+        />
+      </div>
+
+    </div>
+  );
+};
+
 export default Hero;

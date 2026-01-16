@@ -4,7 +4,8 @@ import gsap from "gsap"
 import { useLayoutEffect, useRef } from 'react'
 
 const Nav = () => {
-  const navInnerRef = useRef(null)
+  const navInnerRef = useRef(null);
+  
 
   useLayoutEffect(() => {
     gsap.fromTo(navInnerRef.current,
@@ -17,6 +18,8 @@ const Nav = () => {
         delay: 0.2,
       }
     )
+
+
   }, [])
 
   return (
