@@ -55,3 +55,9 @@ html, body {
   pointer-events: none;
   mix-blend-mode: screen;
 }
+@font-face {
+    font-family: "Julius Sans One";
+  src: url("./assets/fonts/JuliusSansOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
