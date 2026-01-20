@@ -56,7 +56,7 @@ const About = () => {
             <div ref={aboutref} className="mt-11  max-w-3xl">
                 <div className="text-white ml-60 text-6xl">About Us</div>
                 <p className="text-white leading-relaxed mt-6 text-lg ">
-                    Born from a love for bold confidence and effortless elegance, Lyra creates lipsticks that celebrate every mood, every moment, and every you. We believe the perfect lipstick doesn’t just complete a look — it empowers you to own it.
+                    Born from a love for bold confidence and effortless elegance, Lyra creates lipsticks that celebrate every mood, every moment, and every you. We believe the perfect lipstick doesn’t just complete a look it empowers you to own it.
                 </p>
                 <p className="text-white leading-relaxed mt-6 text-lg ">
                     Our formulas are thoughtfully crafted with rich pigments, long-lasting comfort, and a smooth, luxurious finish. From everyday nudes to statement reds, each Lyra shade is designed to complement all skin tones and styles.

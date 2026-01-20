@@ -55,9 +55,18 @@ html, body {
   pointer-events: none;
   mix-blend-mode: screen;
 }
-@font-face {
-    font-family: "Julius Sans One";
-  src: url("./assets/fonts/JuliusSansOne-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+
+.glass-card {
+  background: rgba(10, 10, 10, 0.411); /* matte black glass */
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+
+  border-bottom: 1px solid rgba(213, 127, 127, 0.164);
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.146);
+
 }
+
+

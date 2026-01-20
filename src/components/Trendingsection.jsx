@@ -16,6 +16,7 @@ const Trendingsection = () => {
                 "Seamlessly glides on the lips",
                 "Based on a self-evaluation test",
             ],
+            bgColor: "#4C0B188C"
         },
         {
             title: "VELVET BLOOM",
@@ -28,6 +29,7 @@ const Trendingsection = () => {
                 "Buildable intense pigment",
                 "Based on a self-evaluation test",
             ],
+            bgColor: "#be7465"
         },
         {
             title: "SILK ROUGE",
@@ -40,6 +42,7 @@ const Trendingsection = () => {
                 "Comfortable wear all day",
                 "Based on a self-evaluation test",
             ],
+            bgColor: "#b10e1f"
         },
     ];
 
@@ -47,6 +50,12 @@ const Trendingsection = () => {
 
     useLayoutEffect(() => {
         const lipstick = gsap.utils.toArray(".lip");
+
+        const section = document.querySelector(".section-bg");
+
+        gsap.set(section, {
+            backgroundColor: lipstickData[0].bgColor
+        });
 
         gsap.set(lipstick,       //made all images hidden
             {
@@ -64,7 +73,7 @@ const Trendingsection = () => {
 
         let index = 0;
         gsap.timeline({ repeat: -1 }).to({}, {
-            duration: 4,
+            duration: 4, //Every 4 seconds, onComplete runs
             onComplete: () => {
                 const current = lipstick[index];
                 const next = lipstick[(index + 1) % lipstick.length]
@@ -99,6 +108,13 @@ const Trendingsection = () => {
                 const desc = document.querySelector(".desc");
                 const bullets = document.querySelectorAll(".bullets li");
 
+
+                gsap.to(section, {
+                    backgroundColor: lipstickData[index].bgColor,
+                    duration: 0.8,
+                    ease: "power2.inOut"
+                });
+
                 gsap.to([title, subtitle, desc, bullets], {
                     opacity: 0,
                     y: 10,
@@ -124,7 +140,7 @@ const Trendingsection = () => {
     }, []);
 
     return (
-        <div className="bg-[#4C0B188C] h-[610px]">
+        <div className=" h-[600px] section-bg">
             <div className="flex justify-center mt-10">
                 <h1 className="text-white text-3xl mt-10 ">Trending Now </h1>
 
@@ -155,6 +171,8 @@ const Trendingsection = () => {
                         <li> Based on a self-evaluation test</li>
                     </ul>
                 </div>
+
+
 
 
             </div>
