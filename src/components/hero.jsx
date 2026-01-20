@@ -2,17 +2,11 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
 const Hero = () => {
-
-
-  const comp = useRef(null);
   const imageref = useRef(null);
 
   useLayoutEffect(() => {
-
-    let ctx = gsap.context(() => {
+    
       const v = gsap.timeline();
-
-     
       v.from("#hero-p p", {
         x: -1000,
         stagger: 0.1,
@@ -30,23 +24,16 @@ const Hero = () => {
           ease: "power4.out",
         }
       );
-    }, comp); 
+     
 
-    /* WHY WE USE GSAP.CONTEXT:
-  1. GSAP 'x' is an offset relative to the element's CSS position (x: 0).
-  2. In React Strict Mode, effects run twice.
-  3. Run 1: GSAP moves text from x: -1000 to x: 0.
-  4. Run 2 (without cleanup): GSAP sees text is currently at x: -1000 (from Run 1) 
-     and mistakenly thinks that is the new 'natural' destination.
-  5. ctx.revert() cleans up Run 1, resetting text to x: 0 so Run 2 calculates correctly.
-*/
+    
 
    
-    return () => ctx.revert();
+  
   }, []);
 
   return (
-    <div ref={comp} className="hero-bg h-screen overflow-x-hidden flex">
+    <div  className="hero-bg h-screen overflow-x-hidden flex">
 
       <div id="hero-p" className="mt-15">
         <p className="text-7xl  text-[#dededed6] ml-40 mt-20 font-julius">Elegance Meets</p>

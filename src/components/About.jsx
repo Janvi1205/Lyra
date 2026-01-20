@@ -1,10 +1,59 @@
-const About=()=>{
-    return(
-        <div className="flex">
+import gsap from "gsap";
+import { useLayoutEffect, useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+
+const About = () => {
+
+    const vidref = useRef(null);
+    const secref = useRef(null);
+    const aboutref=useRef(null);
+
+    useLayoutEffect(() => {
+        gsap.fromTo(
+            vidref.current,
+            { x: -100, opacity: 0 },
+            {
+                x: 0,
+                opacity: 1,
+                duration: 2,
+                ease: "power4.out",
+                scrollTrigger: {
+                trigger: secref.current,
+                start: "top 80%",
+               
+            },
+            }
+        );
+        gsap.fromTo(
+            aboutref.current,
+            {
+                x:40
+            
+            },
+            {
+                x:0,
+                opacity:1,
+                duration:2,
+                ease:"power4.out",
+                scrollTrigger: {
+                trigger: secref.current,
+                start: "top 80%",
+               
+            },
+
+            }
+        )
+    }, []);
+
+    return (
+        <div className="flex" ref={secref}>
             <div>
-                <video className="h-140 w-140 ml-20 mt-17" autoPlay muted  src="/lyraaboutvid.mp4"></video>
+                <video ref={vidref} className="h-130 w-140 ml-6  mt-17" autoPlay muted src="/lyraaboutvid.mp4"></video>
             </div>
-            <div className="mt-11  max-w-3xl">
+            <div ref={aboutref} className="mt-11  max-w-3xl">
                 <div className="text-white ml-60 text-6xl">About Us</div>
                 <p className="text-white leading-relaxed mt-6 text-lg ">
                     Born from a love for bold confidence and effortless elegance, Lyra creates lipsticks that celebrate every mood, every moment, and every you. We believe the perfect lipstick doesn’t just complete a look — it empowers you to own it.
