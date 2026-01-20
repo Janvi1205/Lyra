@@ -1,6 +1,7 @@
 import About from "./components/About";
 import Hero from "./components/hero"
 import Navbar from "./components/Nav"
+import Trendingsection from "./components/Trendingsection";
 
 const App=()=>{
   return(
@@ -8,6 +9,7 @@ const App=()=>{
       <Navbar/>
        <Hero/>
        <About/>
+       <Trendingsection/>
 
     </div>
 
