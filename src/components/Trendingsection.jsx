@@ -24,7 +24,7 @@ const Trendingsection=()=>{
 
     let index=0;
     gsap.timeline({repeat:-1}).to({},{
-        duration:5,
+        duration:4,
         onComplete:()=>{
             const current=lipstick[index];
             const next = lipstick[(index+1)% lipstick.length] 
@@ -33,19 +33,23 @@ const Trendingsection=()=>{
                 x:-400,
                 opacity:0,
                 duration:0.8,
-                ease:"power3.inOut"
+                ease:"power3.inOut",
+                scale: 0.65
             })
 
             gsap.set(next,{
                 x:400,
-                opacity:0
+                opacity:0,
+                 scale: 0.65
+
             })
 
             gsap.to(next,{
                 x:0,
                 opacity:1,
                 duration:0.8,
-                ease:"power3.inOut"
+                ease:"power3.inOut",
+                scale: 1
 
             })
             index=(index+1)%lipstick.length;
