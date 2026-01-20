@@ -19,7 +19,7 @@ const testimonials = [
     name: "Riya Patel",
     role: "College Student",
     review:
-      "I was surprised by how long-lasting these lipsticks are. No dryness, no cracking—just comfort all day.",
+      "I was surprised by how long lasting these lipsticks are. No dryness, no cracking—just comfort all day.",
     
   },
   {
@@ -35,7 +35,7 @@ const testimonials = [
     name: "Ananya Mehta",
     role: "Working Professional",
     review:
-      "One swipe is enough for full coverage. I wear Lyra to meetings and evenings out—it fits every mood.",
+      "One swipe is enough for full coverage. I wear Lyra to meetings and evenings out it fits every mood.",
     
   },
   {
