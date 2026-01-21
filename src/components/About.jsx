@@ -5,51 +5,54 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 
-const About = () => {
+const About = ({secref}) => {
 
     const vidref = useRef(null);
-    const secref = useRef(null);
-    const aboutref=useRef(null);
+   
+    const aboutref = useRef(null);
 
     useLayoutEffect(() => {
         gsap.fromTo(
             vidref.current,
-            { x: -100, opacity: 0 },
+            { x: -150, opacity: 0 },
             {
                 x: 0,
                 opacity: 1,
                 duration: 2,
                 ease: "power4.out",
                 scrollTrigger: {
-                trigger: secref.current,
-                start: "top 80%",
-               
-            },
+                    trigger: secref.current,
+                    start: "top 80%",
+                    scrub:2
+
+                },
             }
         );
         gsap.fromTo(
             aboutref.current,
             {
-                x:40
-            
+                x: 40
+
             },
             {
-                x:0,
-                opacity:1,
-                duration:2,
-                ease:"power4.out",
+                x: 0,
+                opacity: 1,
+                duration: 2,
+                ease: "power4.out",
                 scrollTrigger: {
-                trigger: secref.current,
-                start: "top 80%",
-               
-            },
+                    trigger: secref.current,
+                    start: "top 80%",
+                    scrub:2
+                },
 
             }
         )
+
+       
     }, []);
 
     return (
-        <div className="flex" ref={secref}>
+        <div id="about" className="flex" ref={secref}>
             <div>
                 <video ref={vidref} className="h-130 w-140 ml-6  mt-17" autoPlay muted src="/lyraaboutvid.mp4"></video>
             </div>

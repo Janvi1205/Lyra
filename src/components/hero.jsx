@@ -1,17 +1,18 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
-const Hero = () => {
+
+const Hero = ({homeref}) => {
   const imageref = useRef(null);
 
   useLayoutEffect(() => {
-    
       const v = gsap.timeline();
       v.from("#hero-p p", {
         x: -1000,
         stagger: 0.1,
         duration: 1.3,
         ease: "power4.out",
+        
       });
 
       v.fromTo(
@@ -24,16 +25,11 @@ const Hero = () => {
           ease: "power4.out",
         }
       );
-     
-
     
-
-   
-  
   }, []);
 
   return (
-    <div  className="hero-bg h-screen overflow-x-hidden flex">
+    <div ref={homeref}  className="hero-bg h-screen overflow-x-hidden flex">
 
       <div id="hero-p" className="mt-15">
         <p className="text-7xl  text-[#dededed6] ml-40 mt-20 font-julius">Elegance Meets</p>

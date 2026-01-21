@@ -3,7 +3,7 @@ import { ShoppingBasketFavorite01Icon } from '@hugeicons/core-free-icons'
 import gsap from "gsap"
 import { useLayoutEffect, useRef } from 'react'
 
-const Nav = () => {
+const Nav = ({secref,homeref}) => {
   const navInnerRef = useRef(null);
   
 
@@ -32,9 +32,9 @@ const Nav = () => {
         className="glass-navbar w-[88%] h-16 rounded-xl flex justify-between items-center"
       >
         <div className="flex gap-7 ml-20">
-          <a className="text-white cursor-pointer">Home</a>
-          <a className="text-white cursor-pointer">Shades</a>
-          <a className="text-white cursor-pointer">About</a>
+          <button onClick={()=>homeref.current.scrollIntoView({behavior:"smooth"})}  className="text-white cursor-pointer">Home</button>
+           <button className="text-white cursor-pointer">Shades</button>
+           <button onClick={()=>secref.current.scrollIntoView({behavior:"smooth"})} className="text-white cursor-pointer">About</button>
         </div>
 
         <img className="h-20 mr-45" src="/Lyra.png" alt="logo" />
