@@ -32,11 +32,11 @@ const Testimonials = ({ data }) => {
         index + ITEMS_TO_SHOW
     );
     return (
-        <div className="bg-[#7f0d247e] h-[390px] py-7">
+        <div className="bg-[#7f0d247e] h-[570px] py-20">
 
-            <div className="text-5xl justify-center flex text-white ">Feedbacks</div>
+            <div className="text-5xl justify-center flex text-white  ">Feedbacks</div>
             
-           <div className="gap-20 p-20 flex -mt-10">
+           <div className="gap-20 p-20 flex ">
              {visibleTestimonials.map((item) => (
                 <div className="glass-card h-55 rounded-3xl w-100 p-9">
                     <h2 className="text-white">{item.name}</h2>

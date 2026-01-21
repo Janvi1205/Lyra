@@ -4,6 +4,7 @@ import Navbar from "./components/Nav"
 import Trendingsection from "./components/Trendingsection";
 import testimonials from "./data/testimonials";
 import Testimonial from "./components/Testimonials";
+import Footer from "./components/Footer";
 
 const App=()=>{
   return(
@@ -13,6 +14,7 @@ const App=()=>{
        <About/>
        <Trendingsection/>
        <Testimonial data={testimonials}/>
+       <Footer/>
 
     </div>
 
