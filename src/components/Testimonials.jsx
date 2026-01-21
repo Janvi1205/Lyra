@@ -18,7 +18,7 @@ const Testimonials = ({ data }) => {
                 // otherwise move to next 3
                 return prevIndex + ITEMS_TO_SHOW;
             });
-        }, 5000);
+        }, 4000);
 
         return () => clearInterval(timer);
     }, [data]);
@@ -32,8 +32,12 @@ const Testimonials = ({ data }) => {
         index + ITEMS_TO_SHOW
     );
     return (
-        <div className="bg-[#7f0d247e] h-[340px]  gap-20 p-20 flex ">
-            {visibleTestimonials.map((item) => (
+        <div className="bg-[#7f0d247e] h-[390px] py-7">
+
+            <div className="text-5xl justify-center flex text-white ">Feedbacks</div>
+            
+           <div className="gap-20 p-20 flex -mt-10">
+             {visibleTestimonials.map((item) => (
                 <div className="glass-card h-55 rounded-3xl w-100 p-9">
                     <h2 className="text-white">{item.name}</h2>
                     <h3 className="text-white mt-1">{item.role}</h3>
@@ -41,6 +45,8 @@ const Testimonials = ({ data }) => {
 
                 </div>
             ))}
+           </div>
+           
 
 
 
