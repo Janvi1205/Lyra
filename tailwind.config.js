@@ -4,9 +4,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        julius: ['"Julius Sans One"', 'sans-serif'],
+        sans: ['Julius Sans One'],
+        serif: ['Amaranth'],
+        heading: ['Playfair Display', 'serif'],
+        body: ['Poppins', 'sans-serif'],
       },
     },
   },
   plugins: [],
-};
+}

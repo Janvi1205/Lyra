@@ -31,8 +31,8 @@ const Hero = ({homeref}) => {
   return (
     <div ref={homeref}  className="hero-bg h-screen overflow-x-hidden flex">
 
-      <div id="hero-p" className="mt-15">
-        <p className="text-7xl  text-[#dededed6] ml-40 mt-20 font-julius">Elegance Meets</p>
+      <div id="hero-p" className="mt-15 font-serif ">
+        <p className="text-7xl  text-[#dededed6] ml-40 mt-20 ">Elegance Meets</p>
         <p className="text-7xl text-[#dededed6] ml-70 mt-3">Confidence in</p>
         <p className="text-7xl text-[#dededed6] ml-100 mt-3">Every Shade</p>
       </div>

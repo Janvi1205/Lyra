@@ -57,8 +57,8 @@ const About = ({secref}) => {
                 <video ref={vidref} className="h-130 w-140 ml-6  mt-17" autoPlay muted src="/lyraaboutvid.mp4"></video>
             </div>
             <div ref={aboutref} className="mt-11  max-w-3xl">
-                <div className="text-white ml-60 text-6xl">About Us</div>
-                <p className="text-white leading-relaxed mt-6 text-lg ">
+                <div style={{fontFamily:"Amaranth"}} className="text-white ml-60 text-6xl">About Us</div>
+                <p  className="text-white leading-relaxed mt-6 text-lg  ">
                     Born from a love for bold confidence and effortless elegance, Lyra creates lipsticks that celebrate every mood, every moment, and every you. We believe the perfect lipstick doesn’t just complete a look it empowers you to own it.
                 </p>
                 <p className="text-white leading-relaxed mt-6 text-lg ">
