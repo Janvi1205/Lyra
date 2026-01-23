@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 
-const About = ({secref}) => {
+const About = () => {
 
     const vidref = useRef(null);
    
@@ -21,7 +21,7 @@ const About = ({secref}) => {
                 duration: 2,
                 ease: "power4.out",
                 scrollTrigger: {
-                    trigger: secref.current,
+                    trigger: aboutref.current,
                     start: "top 80%",
                     scrub:2
 
@@ -40,7 +40,7 @@ const About = ({secref}) => {
                 duration: 2,
                 ease: "power4.out",
                 scrollTrigger: {
-                    trigger: secref.current,
+                    trigger: aboutref.current,
                     start: "top 80%",
                     scrub:2
                 },
@@ -52,7 +52,7 @@ const About = ({secref}) => {
     }, []);
 
     return (
-        <div id="about" className="flex" ref={secref}>
+        <div id="about" className="flex">
             <div>
                 <video ref={vidref} className="h-130 w-140 ml-6  mt-17" autoPlay muted src="/lyraaboutvid.mp4"></video>
             </div>

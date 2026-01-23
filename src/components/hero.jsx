@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
 
-const Hero = ({homeref}) => {
+const Hero = () => {
   const imageref = useRef(null);
 
   useLayoutEffect(() => {
@@ -29,7 +29,7 @@ const Hero = ({homeref}) => {
   }, []);
 
   return (
-    <div ref={homeref}  className="hero-bg h-screen overflow-x-hidden flex">
+    <div className="hero-bg h-screen overflow-x-hidden flex">
 
       <div id="hero-p" className="mt-15 font-serif ">
         <p className="text-7xl  text-[#dededed6] ml-40 mt-20 ">Elegance Meets</p>

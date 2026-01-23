@@ -1,27 +1,21 @@
-import About from "./components/About";
-import Hero from "./components/hero"
-import Navbar from "./components/Nav"
-import Trendingsection from "./components/Trendingsection";
-import testimonials from "./data/testimonials";
-import Testimonial from "./components/Testimonials";
-import Footer from "./components/Footer";
-import { useRef } from "react";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Nav";
+import Home from "./components/Home";
+import Shades from "./components/Shades";
 
-const App=()=>{
+const App = () => {
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/shades" element={<Shades/>} />
+      </Routes>
 
-  const secref=useRef(null);
-  const homeref=useRef(null);
-  return(
-    <div>
-      <Navbar secref={secref} homeref={homeref}/>
-       <Hero homeref={homeref}/>
-       <About secref={secref}/>
-       <Trendingsection/>
-       <Testimonial data={testimonials}/>
-       <Footer/>
-
+     
     </div>
+  );
+};
 
-  )
-}
 export default App;
