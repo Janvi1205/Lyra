@@ -1,4 +1,4 @@
-[
+const LipstickData =[
   {
     "id": 1,
     "brand": "LYRA",
@@ -560,3 +560,4 @@
     ]
   }
 ]
+export default LipstickData;
