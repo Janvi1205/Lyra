@@ -25,12 +25,10 @@ const Hero = () => {
           ease: "power4.out",
         }
       );
-    
   }, []);
 
   return (
     <div className="hero-bg h-screen overflow-x-hidden flex">
-
       <div id="hero-p" className="mt-15 font-serif ">
         <p className="text-7xl  text-[#dededed6] ml-40 mt-20 ">Elegance Meets</p>
         <p className="text-7xl text-[#dededed6] ml-70 mt-3">Confidence in</p>
@@ -46,6 +44,7 @@ const Hero = () => {
           alt=""
         />
       </div>
+
 
     </div>
   );

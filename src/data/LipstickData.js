@@ -12,6 +12,7 @@ const LipstickData =[
         "name": "Crimson Bloom",
         "color": "#9B1B30",
         "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
+        
       },
       {
         "id": "1B",

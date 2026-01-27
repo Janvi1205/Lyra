@@ -62,8 +62,10 @@ const Shades = ({ data }) => {
     return (
         <div className="">
             <div className="mt-[16%]">
-                <h1 className="text-white text-4xl justify-center flex mt-10 font-serif">OUR</h1>
-                <h2 className="text-white text-4xl justify-center flex mt-4 font-serif">PREMIUM COLLECTION</h2>
+                <h1 className="text-white text-5xl justify-center flex mt-10 font-serif">WHERE COLOR</h1>
+                <h2 className="text-white text-5xl justify-center flex mt-4 font-serif">BECOMES CONFIDENCE</h2>
+                <p  className="text-gray-300 text-lg justify-center flex mt-5 ">Explore our full spectrum of shades designed to enhance your natural beauty</p>
+                <p className="text-gray-300 text-lg justify-center flex "> from subtle whispers of color to bold declarations of self-expression</p>
             </div>
 
             <div className="flex justify-center mt-28">

@@ -27,10 +27,7 @@ const Testimonials = ({ data }) => {
    
 
     // pick only 3 testimonials to show
-    const visibleTestimonials = data.slice(
-        index,
-        index + ITEMS_TO_SHOW
-    );
+    const visibleTestimonials = data.slice(index,index + ITEMS_TO_SHOW);
     return (
         <div className="bg-[#7f0d247e] h-[570px] py-20">
 
