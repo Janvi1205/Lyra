@@ -6,6 +6,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Shades = ({data}) => {
     const gridRef = useRef(null);
+    const [selectedShade, setSelectedShade] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
