@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 
-const Shades = ({ data }) => {
+const Shades = ({data}) => {
     const gridRef = useRef(null);
 
     useEffect(() => {
@@ -69,12 +69,18 @@ const Shades = ({ data }) => {
             </div>
 
             <div className="flex justify-center mt-28">
-                <div ref={gridRef} className=" grid grid-cols-5 gap-8 space-y-4 ">
+                <div ref={gridRef} className=" grid grid-cols-5 gap-8 space-y-12 ">
                     {data.map((elem) => (
-                        <div className="lips-card">
-                            <div className="bg-white h-80 w-60">
-                                <h1>{elem.brand}</h1>
+                        <div className="lips-card cursor-pointer ">
+                            <div className=" h-90 w-60 rounded-2xl flex flex-col overflow-hidden group relative">
+                                
+                                <img className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40"  src={elem.image} alt="" />
+                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <h3 className="text-white text-2xl font-semibold text-center px-4">{elem.colorname}</h3>
+                                </div>
+                                
                             </div>
+                            
                         </div>
                     ))}
                 </div>

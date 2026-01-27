@@ -3,6 +3,7 @@ import Navbar from "./components/Nav";
 import Home from "./components/Home";
 import Shades from "./components/Shades";
 import lipstickdata from "./data/LipstickData";
+import Footer from "./components/Footer";
 
 
 const App = () => {
@@ -14,6 +15,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/shades" element={<Shades data={lipstickdata}/>} />
       </Routes>
+
+      <Footer/>
 
      
     </div>

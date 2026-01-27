@@ -1,564 +1,285 @@
-const LipstickData =[
+const LipstickData = [
   {
-    "id": 1,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 1",
-    "price": 849,
-    "finish": "Satin",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "1A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-        
-      },
-      {
-        "id": "1B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "1C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-001",
+    "category": "Matte",
+    "colorname": "Crimson Red",
+    "price": "900",
+    "image": "./lipstickImages/image1.png",
+    "description": "A classic, bold fire-engine red with a transfer-proof matte finish."
   },
   {
-    "id": 2,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 2",
-    "price": 899,
-    "finish": "Velvet",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "2A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "2B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "2C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-002",
+    "category": "Matte",
+    "colorname": "Ruby Woo",
+    "price": "900",
+    "image": "./lipstickImages/image2.png",
+    "description": "A cool-toned red that whitens teeth and provides an iconic retro look."
+  },  
+  {
+    "product_id": "M-003",
+    "category": "Matte",
+    "colorname": "Toasted Almond",
+    "price": "850",
+    "image": "./lipstickImages/image3.png",
+    "description": "The perfect everyday warm nude brown that dries down to a powdery soft matte."
   },
   {
-    "id": 3,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 3",
-    "price": 799,
-    "finish": "Matte",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "3A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "3B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "3C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-004",
+    "category": "Matte",
+    "colorname": "Deep Plum",
+    "price": "950",
+    "image": "./lipstickImages/image4.png",
+    "description": "A mysterious dark purple shade designed for evening wear."
   },
   {
-    "id": 4,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 4",
-    "price": 849,
-    "finish": "Satin",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "4A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "4B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "4C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-005",
+    "category": "Matte",
+    "colorname": "Burnt Orange",
+    "price": "850",
+    "image": "./lipstickImages/image5.png",
+    "description": "A trendy terracotta orange that captures the essence of autumn leaves."
   },
   {
-    "id": 5,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 5",
-    "price": 899,
-    "finish": "Velvet",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "5A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "5B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "5C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-006",
+    "category": "Matte",
+    "colorname": "Dusty Rose",
+    "price": "850",
+    "image": "./lipstickImages/image6.png",
+    "description": "A soft, romantic pink-brown hue that provides a 'your lips but better' effect."
   },
   {
-    "id": 6,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 6",
-    "price": 799,
-    "finish": "Matte",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "6A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "6B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "6C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-007",
+    "category": "Matte",
+    "colorname": "Midnight Brown",
+    "price": "900",
+    "image": "./lipstickImages/image7.png",
+    "description": "A deep espresso shade inspired by 90s grunge fashion."
   },
   {
-    "id": 7,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 7",
-    "price": 849,
-    "finish": "Satin",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "7A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "7B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "7C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-008",
+    "category": "Matte",
+    "colorname": "Electric Pink",
+    "price": "900",
+    "image": "./lipstickImages/image8.png",
+    "description": "A neon bright pink that pops on all skin tones, perfect for festivals."
   },
   {
-    "id": 8,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 8",
-    "price": 899,
-    "finish": "Velvet",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "8A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "8B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "8C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-009",
+    "category": "Matte",
+    "colorname": "Coral Reef",
+    "price": "850",
+    "image": "./lipstickImages/image9.png",
+    "description": "A vibrant reddish-orange that brings warmth to your complexion."
+
   },
   {
-    "id": 9,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 9",
-    "price": 799,
-    "finish": "Matte",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "9A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "9B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "9C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-010",
+    "category": "Matte",
+    "colorname": "Burgundy Wine",
+    "price": "950",
+    "image": "./lipstickImages/image10.png",
+    "description": "A rich, intoxicating deep red that exudes sophistication."
   },
   {
-    "id": 10,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 10",
-    "price": 849,
-    "finish": "Satin",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "10A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "10B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "10C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-011",
+    "category": "Matte",
+    "colorname": "Pitch Black",
+    "price": "990",
+    "image": "./lipstickImages/image11.png",
+    "description": "An edgy, true black lipstick with an ultra-matte finish."
   },
   {
-    "id": 11,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 11",
-    "price": 899,
-    "finish": "Velvet",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "11A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "11B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "11C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-012",
+    "category": "Matte",
+    "colorname": "Mauve Mist",
+    "price": "850",
+    "image": "./lipstickImages/image12.png",
+    "description": "A cool-toned lilac grey that offers a chic, modern twist on the nude lip."
   },
   {
-    "id": 12,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 12",
-    "price": 799,
-    "finish": "Matte",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "12A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "12B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "12C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-013",
+    "category": "Matte",
+    "colorname": "Brick Red",
+    "price": "900",
+    "image": "./lipstickImages/image13.png",
+    "description": "A rustic red with brown undertones, perfect for daily wear."
   },
   {
-    "id": 13,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 13",
-    "price": 849,
-    "finish": "Satin",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "13A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "13B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "13C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-014",
+    "category": "Matte",
+    "colorname": "Berry Crush",
+    "price": "920",
+    "image": "./lipstickImages/image14.png",
+    "description": "A juicy raspberry shade that brightens the face instantly."
   },
   {
-    "id": 14,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 14",
-    "price": 899,
-    "finish": "Velvet",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "14A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "14B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "14C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-015",
+    "category": "Matte",
+    "colorname": "Terracotta",
+    "price": "850",
+    "image": "./lipstickImages/image15.png",
+    "description": "A warm earth tone that balances orange and brown."
   },
   {
-    "id": 15,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 15",
-    "price": 799,
-    "finish": "Matte",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "15A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "15B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "15C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-016",
+    "category": "Matte",
+    "colorname": "Fuchsia Shock",
+    "price": "900",
+    "image": "./lipstickImages/image16.png",
+    "description": "A loud, blue-based bright purple-pink that is unapologetically bold."
   },
   {
-    "id": 16,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 16",
-    "price": 849,
-    "finish": "Satin",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "16A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "16B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "16C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-017",
+    "category": "Matte",
+    "colorname": "Pale Peach",
+    "price": "800",
+    "image": "./lipstickImages/image17.png",
+    "description": "A soft pastel peach for light skin tones, creating a delicate look."
   },
   {
-    "id": 17,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 17",
-    "price": 899,
-    "finish": "Velvet",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "17A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "17B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "17C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-018",
+    "category": "Matte",
+    "colorname": "Cherry Bomb",
+    "price": "920",
+    "image": "./lipstickImages/image18.png",
+    "description": "A dark, vampy red that looks like stained glass."
   },
   {
-    "id": 18,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 18",
-    "price": 799,
-    "finish": "Matte",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "18A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "18B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "18C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-019",
+    "category": "Matte",
+    "colorname": "Cocoa Bean",
+    "price": "880",
+    "image": "./lipstickImages/image19.png",
+    "description": "A medium neutral brown that pairs perfectly with a smokey eye."
   },
   {
-    "id": 19,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 19",
-    "price": 849,
-    "finish": "Satin",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "19A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "19B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "19C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "M-020",
+    "category": "Matte",
+    "colorname": "Slate Grey",
+    "price": "990",
+    "image": "./lipstickImages/image20.png",
+    "description": "A unique cool grey shade for editorial looks."
   },
   {
-    "id": 20,
-    "brand": "LYRA",
-    "productName": "Lyra Lipstick 20",
-    "price": 899,
-    "finish": "Velvet",
-    "description": "Premium lipstick with rich pigment and smooth finish.",
-    "shades": [
-      {
-        "id": "20A",
-        "name": "Crimson Bloom",
-        "color": "#9B1B30",
-        "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
-      },
-      {
-        "id": "20B",
-        "name": "Soft Nude",
-        "color": "#C48A7C",
-        "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
-      },
-      {
-        "id": "20C",
-        "name": "Dusty Rose",
-        "color": "#B76E79",
-        "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348"
-      }
-    ]
+    "product_id": "V-001",
+    "category": "Velvet",
+    "colorname": "Velvet Teddy",
+    "price": "1050",
+    "image": "./lipstickImages/image21.png",
+    "description": "A soft beige-brown that feels like cashmere on the lips."
+  },
+  {
+    "product_id": "V-002",
+    "category": "Velvet",
+    "colorname": "Soft Scarlet",
+    "price": "1050",
+    "image": "./lipstickImages/image22.png",
+    "description": "A blurred-focus red that gives a bitten-lip effect."
+  },
+  {
+    "product_id": "V-003",
+    "category": "Velvet",
+    "colorname": "Cashmere Rose",
+    "price": "1050",
+    "image": "./lipstickImages/image23.png",
+    "description": "A sophisticated pink that glides on smoothly with a velvet sheen."
+  },
+  {
+    "product_id": "V-004",
+    "category": "Velvet",
+    "colorname": "Mulberry Silk",
+    "price": "1100",
+    "image": "./lipstickImages/image24.png",
+    "description": "A rich berry shade with a luxurious texture."
+  },
+  {
+    "product_id": "V-005",
+    "category": "Velvet",
+    "colorname": "Plush Peony",
+    "price": "1050",
+    "image": "./lipstickImages/image25.png",
+    "description": "A light, fresh pink perfect for spring."
+  },
+  {
+    "product_id": "V-006",
+    "category": "Velvet",
+    "colorname": "Suede Mocha",
+    "price": "1050",
+    "image": "./lipstickImages/image26.png",
+    "description": "A warm coffee shade with a creamy texture."
+  },
+  {
+    "product_id": "V-007",
+    "category": "Velvet",
+    "colorname": "Royal Red",
+    "price": "1100",
+    "image": "./lipstickImages/image27.png",
+    "description": "A regal, blue-toned red that provides a plush look."
+  },
+  {
+    "product_id": "V-008",
+    "category": "Velvet",
+    "colorname": "Velour Violet",
+    "price": "1150",
+    "image": "./lipstickImages/image28.png",
+    "description": "A vibrant purple that is easy to wear and comfortable."
+  },
+  {
+    "product_id": "V-009",
+    "category": "Velvet",
+    "colorname": "Smooth Apricot",
+    "price": "1050",
+    "image": "./lipstickImages/image29.png",
+    "description": "A gentle orange-pink blend that brightens the face."
+
+  },
+  {
+    "product_id": "V-010",
+    "category": "Velvet",
+    "colorname": "Draped Gold",
+    "price": "1200",
+    "image": "./lipstickImages/image30.png",
+    "description": "A bronze-nude with subtle shimmer particles in a velvet base."
+  },
+  {
+    "product_id": "S-001",
+    "category": "Satin",
+    "colorname": "Satin Doll Pink",
+    "price": "1250",
+    "image": "./lipstickImages/image31.png",
+    "description": "A high-shine baby pink that moisturizes lips."
+  },
+  {
+    "product_id": "S-002",
+    "category": "Satin",
+    "colorname": "Luminous Red",
+    "price": "1250",
+    "image": "./lipstickImages/image32.png",
+    "description": "A glossy, hydrating red that makes lips look fuller."
+  },
+  {
+    "product_id": "S-003",
+    "category": "Satin",
+    "colorname": "Dewy Nude",
+    "price": "1200",
+    "image": "./lipstickImages/image33.png",
+    "description": "A wet-look beige, perfect for a clean girl aesthetic."
+  },
+  {
+    "product_id": "S-004",
+    "category": "Satin",
+    "colorname": "Glistening Berry",
+    "price": "1250",
+    "image": "./lipstickImages/image34.png",
+    "description": "A deep fruit shade with a lustrous sheen."
+  },
+  {
+    "product_id": "S-005",
+    "category": "Satin",
+    "colorname": "Polished Coral",
+    "price": "1200",
+    "image": "./lipstickImages/image35.png",
+    "description": "A shiny, happy coral shade that reflects light."
   }
 ]
 export default LipstickData;

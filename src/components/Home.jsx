@@ -3,7 +3,7 @@ import About from "./About";
 import Trendingsection from "./Trendingsection";
 import Testimonial from "./Testimonials";
 import testimonials from "../data/testimonials";
-import Footer from "./Footer";
+
 
 const HomePage = () => {
   return (
@@ -24,9 +24,6 @@ const HomePage = () => {
         <Testimonial data={testimonials} />
       </section>
 
-      <section>
-        <Footer/>
-      </section>
     </main>
   );
 };
