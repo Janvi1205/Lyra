@@ -1,14 +1,24 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef,useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+import ShadeModal from "./SelectedModal"
 
 
 const Shades = ({data}) => {
     const gridRef = useRef(null);
     const [selectedShade, setSelectedShade] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    
+    const handleclick=(shade)=>{
+        setSelectedShade(shade);
+        setIsModalOpen(true);
 
+    }
+    const closemodal=()=>{
+        setIsModalOpen(false);
+        setSelectedShade(null);
+    }
     useEffect(() => {
         const ctx = gsap.context(() => {
 
@@ -73,7 +83,7 @@ const Shades = ({data}) => {
             <div className="flex justify-center mt-28">
                 <div ref={gridRef} className=" grid grid-cols-5 gap-8 space-y-12 ">
                     {data.map((elem) => (
-                        <div className="lips-card cursor-pointer ">
+                        <div className="lips-card cursor-pointer " onClick={()=>handleclick(elem)}>
                             <div className=" h-90 w-60 rounded-2xl flex flex-col overflow-hidden group relative">
                                 
                                 <img className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40"  src={elem.image} alt="" />
@@ -87,6 +97,11 @@ const Shades = ({data}) => {
                     ))}
                 </div>
             </div>
+             <ShadeModal 
+                isOpen={isModalOpen}
+                onClose={closemodal}
+                shade={selectedShade}
+            />
 
         </div>
 
