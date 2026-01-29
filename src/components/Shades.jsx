@@ -1,24 +1,25 @@
-import { useEffect, useRef,useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import ShadeModal from "./SelectedModal"
 
 
-const Shades = ({data,addtocart,cart,removeFromCart}) => {
+const Shades = ({ data, addtocart, cart, removeFromCart }) => {
     const gridRef = useRef(null);
-   
+
     const [selectedShade, setSelectedShade] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    
-    const handleclick=(shade)=>{
+
+    const handleclick = (shade) => {
         setSelectedShade(shade);
         setIsModalOpen(true);
 
     }
-    const closemodal=()=>{
+    const closemodal = () => {
         setIsModalOpen(false);
         setSelectedShade(null);
+
     }
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -67,53 +68,63 @@ const Shades = ({data,addtocart,cart,removeFromCart}) => {
             }
         }, gridRef);
 
-        var t=gsap.timeline();
-        t.from(".text-animate",{
-            x:-300,
-            stagger:0.4,
-            duration: 1,
-            ease: "power3.out"
+        var t = gsap.timeline();
+        t.fromTo(".text-animate",
+            {
+                y: 60,
+                opacity: 0,
+                letterSpacing: "0.5em"
+            },
+            {
+                y: 0,
+                opacity: 1,
+                letterSpacing: "normal",
+                stagger: 0.2,
+                duration: 1.2,
+                ease: "power3.out"
 
-        })
+
+            }
+        )
 
 
 
 
         return () => ctx.revert();
     }, []);
-   
 
-    
 
-    
+
+
+
 
     return (
-        <div className="">
-            <div  className="mt-[16%]">
-                <h1  className="text-white text-animate text-5xl justify-center flex mt-10 font-serif">WHERE COLOR</h1>
-                <h1  className="text-white text-animate text-5xl justify-center flex mt-4 font-serif">BECOMES CONFIDENCE</h1>
-                <p  className="text-gray-300 text-animate text-lg justify-center flex mt-5 ">Explore our full spectrum of shades designed to enhance your natural beauty</p>
-                <p  className="text-gray-300 text-animate text-lg justify-center flex "> from subtle whispers of color to bold declarations of self-expression</p>
+        <div >
+            <div className="mt-[16%]">
+                <h1 className="text-white text-animate text-5xl justify-center flex mt-10 font-serif">WHERE COLOR</h1>
+                <h1 className="text-white text-animate text-5xl justify-center flex mt-4 font-serif">BECOMES CONFIDENCE</h1>
+                <p className="text-gray-300 text-animate text-lg justify-center flex mt-5 ">Explore our full spectrum of shades designed to enhance your natural beauty</p>
+                <p className="text-gray-300 text-animate text-lg justify-center flex "> from subtle whispers of color to bold declarations of self-expression</p>
             </div>
 
             <div className="flex justify-center mt-28">
                 <div ref={gridRef} className=" grid grid-cols-5 gap-8 space-y-12 ">
                     {data.map((elem) => (
-                        <div className="lips-card cursor-pointer " onClick={()=>handleclick(elem)}>
+                        <div className="lips-card cursor-pointer " onClick={() => handleclick(elem)}>
                             <div className=" h-90 w-60 rounded-2xl flex flex-col overflow-hidden group relative">
-                                
-                                <img className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40"  src={elem.image} alt="" />
+
+                                <img className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40" src={elem.image} alt="" />
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <h3 className="text-white text-2xl font-semibold text-center px-4">{elem.colorname}</h3>
                                 </div>
-                                
+
                             </div>
-                            
+
                         </div>
                     ))}
                 </div>
             </div>
-             <ShadeModal 
+            <ShadeModal
                 isOpen={isModalOpen}
                 onClose={closemodal}
                 shade={selectedShade}
