@@ -20,19 +20,19 @@ const SelectedModal = ({ isOpen, onClose, shade, addtocart, cart,removeFromCart 
                 <IoClose onClick={() => onClose()} className="text-white text-4xl absolute -mt-130 ml-260 cursor-pointer" />
 
             </div>
-            <div className="text-white">
-                <div><h1 className="text-5xl font-serif mt-5  ml-10">{shade.colorname}</h1></div>
+            <div className="mt-">
+                <div><h1 className="text-5xl font-serif  text-white  ml-10">{shade.colorname}</h1></div>
                 <div> <p className="text-red-600 text-[25px] font-bold ml-10 mt-1 ">₹{shade.price}</p></div>
                 <div>  <p className="w-100 px-3 h-50 ml-8 mt-5 text-gray-300">{shade.description}</p></div>
-                <div className="flex ml-11 gap-3">
+                <div className="flex ml-11 gap-3 text-white">
                     <p className="text-[20px] " >Finish :</p>
-                    <button className="border-red-700 rounded-xl border-2 px-3 mt-1">{shade.category}</button>
+                    <button className="border-red-700  rounded-xl border-2 px-3 mt-1">{shade.category}</button>
                 </div>
-                <div className="mt-10 ml-10">
+                <div className="mt-13 ml-10">
                     {cartItem && cart[shade.product_id].quantity>0 ? (
                         <div className="bg-white text-black py-2 w-90 justify-center  gap-25  rounded-xl flex cursor-pointer ">
                             <button onClick={()=>removeFromCart(shade)} className="cursor-pointer  "><GrSubtract /></button>
-                            <p className="text-2xl">{cartItem.quantity}</p>
+                            <p  className="text-2xl w-5">{cartItem.quantity}</p>
                             <button onClick={() => addtocart(shade)} className="text-xl cursor-pointer"><IoAdd /></button>
                         </div>
 
