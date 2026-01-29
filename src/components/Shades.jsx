@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 import ShadeModal from "./SelectedModal"
 
 
-const Shades = ({data,addtocart,updateqty,cart}) => {
+const Shades = ({data,addtocart,cart,removeFromCart}) => {
     const gridRef = useRef(null);
     const [selectedShade, setSelectedShade] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -103,6 +103,7 @@ const Shades = ({data,addtocart,updateqty,cart}) => {
                 shade={selectedShade}
                 addtocart={addtocart}
                 cart={cart}
+                removeFromCart={removeFromCart}
             />
 
         </div>

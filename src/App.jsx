@@ -29,6 +29,20 @@ const App = () => {
     }
      
   }
+  const removeFromCart=(shade)=>{
+      if(cart[shade.product_id] && cart[shade.product_id].quantity > 0)
+      {
+          setcart({
+            ...cart,
+            [shade.product_id]:{
+              ...cart[shade.product_id],
+              quantity:cart[shade.product_id].quantity-1
+            }
+          })
+      }
+
+    
+  }
 
  
 
@@ -36,12 +50,10 @@ const App = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shades" element={<Shades data={lipstickdata} addtocart={addtocart}  cart={cart}/>} />
+        <Route path="/shades" element={<Shades data={lipstickdata} addtocart={addtocart} removeFromCart={removeFromCart}  cart={cart}/>} />
       </Routes>
-
       <Footer/>
 
      

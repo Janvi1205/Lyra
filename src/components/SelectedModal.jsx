@@ -1,12 +1,15 @@
 import { IoClose } from "react-icons/io5";
 import { HugeiconsIcon } from '@hugeicons/react'
 import { ShoppingBasketFavorite01Icon } from '@hugeicons/core-free-icons'
+import { GrSubtract } from "react-icons/gr";
+import { IoAdd } from "react-icons/io5";
 
 
-const SelectedModal = ({ isOpen, onClose, shade,addtocart, cart }) => {
+
+const SelectedModal = ({ isOpen, onClose, shade, addtocart, cart,removeFromCart }) => {
     if (!isOpen) return null;
 
-    
+
     const cartItem = cart[shade.product_id];
 
 
@@ -26,11 +29,11 @@ const SelectedModal = ({ isOpen, onClose, shade,addtocart, cart }) => {
                     <button className="border-red-700 rounded-xl border-2 px-3 mt-1">{shade.category}</button>
                 </div>
                 <div className="mt-10 ml-10">
-                    {cartItem ? (
-                        <div  className="bg-white text-black py-3 w-90 justify-center  gap-20  rounded-xl flex cursor-pointer ">
-                            <button  className="text-5xl">-</button>
-                             <p className="text-3xl">{cartItem.quantity}</p>
-                            <button  className="text-3xl">+</button>
+                    {cartItem && cart[shade.product_id].quantity>0 ? (
+                        <div className="bg-white text-black py-2 w-90 justify-center  gap-25  rounded-xl flex cursor-pointer ">
+                            <button onClick={()=>removeFromCart(shade)} className="cursor-pointer  "><GrSubtract /></button>
+                            <p className="text-2xl">{cartItem.quantity}</p>
+                            <button onClick={() => addtocart(shade)} className="text-xl cursor-pointer"><IoAdd /></button>
                         </div>
 
                     ) : (
