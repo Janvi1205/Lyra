@@ -7,6 +7,7 @@ import ShadeModal from "./SelectedModal"
 
 const Shades = ({data,addtocart,cart,removeFromCart}) => {
     const gridRef = useRef(null);
+   
     const [selectedShade, setSelectedShade] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     
@@ -64,20 +65,35 @@ const Shades = ({data,addtocart,cart,removeFromCart}) => {
 
                     }, "-=0.8")
             }
-
-
-
         }, gridRef);
+
+        var t=gsap.timeline();
+        t.from(".text-animate",{
+            x:-300,
+            stagger:0.4,
+            duration: 1,
+            ease: "power3.out"
+
+        })
+
+
+
+
         return () => ctx.revert();
     }, []);
+   
+
+    
+
+    
 
     return (
         <div className="">
-            <div className="mt-[16%]">
-                <h1 className="text-white text-5xl justify-center flex mt-10 font-serif">WHERE COLOR</h1>
-                <h2 className="text-white text-5xl justify-center flex mt-4 font-serif">BECOMES CONFIDENCE</h2>
-                <p  className="text-gray-300 text-lg justify-center flex mt-5 ">Explore our full spectrum of shades designed to enhance your natural beauty</p>
-                <p className="text-gray-300 text-lg justify-center flex "> from subtle whispers of color to bold declarations of self-expression</p>
+            <div  className="mt-[16%]">
+                <h1  className="text-white text-animate text-5xl justify-center flex mt-10 font-serif">WHERE COLOR</h1>
+                <h1  className="text-white text-animate text-5xl justify-center flex mt-4 font-serif">BECOMES CONFIDENCE</h1>
+                <p  className="text-gray-300 text-animate text-lg justify-center flex mt-5 ">Explore our full spectrum of shades designed to enhance your natural beauty</p>
+                <p  className="text-gray-300 text-animate text-lg justify-center flex "> from subtle whispers of color to bold declarations of self-expression</p>
             </div>
 
             <div className="flex justify-center mt-28">

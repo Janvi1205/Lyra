@@ -35,7 +35,6 @@ const SelectedModal = ({ isOpen, onClose, shade, addtocart, cart,removeFromCart 
                             <p  className="text-2xl w-5">{cartItem.quantity}</p>
                             <button onClick={() => addtocart(shade)} className="text-xl cursor-pointer"><IoAdd /></button>
                         </div>
-
                     ) : (
                         <div>
                             <button onClick={() => addtocart(shade)} className="bg-white text-black py-3 px-32 rounded-xl flex cursor-pointer ">Add to cart
