@@ -3,7 +3,7 @@ import { HugeiconsIcon } from '@hugeicons/react'
 import { ShoppingBasketFavorite01Icon } from '@hugeicons/core-free-icons'
 
 
-const SelectedModal = ({ isOpen, onClose, shade, updateqty, addtocart, cart }) => {
+const SelectedModal = ({ isOpen, onClose, shade,addtocart, cart }) => {
     if (!isOpen) return null;
 
     
@@ -27,10 +27,10 @@ const SelectedModal = ({ isOpen, onClose, shade, updateqty, addtocart, cart }) =
                 </div>
                 <div className="mt-10 ml-10">
                     {cartItem ? (
-                        <div  className="bg-white text-black py-3 px-32 rounded-xl flex cursor-pointer ">
-                            <button>-</button>
-                             <p>{cartItem.quantity}</p>
-                            <button>+</button>
+                        <div  className="bg-white text-black py-3 w-90 justify-center  gap-20  rounded-xl flex cursor-pointer ">
+                            <button  className="text-5xl">-</button>
+                             <p className="text-3xl">{cartItem.quantity}</p>
+                            <button  className="text-3xl">+</button>
                         </div>
 
                     ) : (

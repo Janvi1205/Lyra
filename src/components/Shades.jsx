@@ -101,7 +101,6 @@ const Shades = ({data,addtocart,updateqty,cart}) => {
                 isOpen={isModalOpen}
                 onClose={closemodal}
                 shade={selectedShade}
-                updateqty={updateqty}
                 addtocart={addtocart}
                 cart={cart}
             />
