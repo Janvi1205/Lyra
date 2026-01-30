@@ -39,9 +39,9 @@ const Mycart = ({ cart, addtocart, removeFromCart }) => {
                         <div className="ml-35 mt-1 w-30  " >
                             <p className="text-white text-xl flex justify-center ">₹{item.price*item.quantity}</p>
                             <div className="qty-btn  mt-9 flex justify-between items-center">
-                               <button onClick={addtocart(shade)} className="text-md cursor-pointer"><GrSubtract /></button>
+                               <button onClick={() => removeFromCart(item)} className="text-md cursor-pointer"><GrSubtract /></button>
                                <p className="ml-1">{item.quantity}</p>
-                               <button className="text-lg cursor-pointer"><IoAdd /></button>
+                               <button onClick={() => addtocart(item)} className="text-lg cursor-pointer"><IoAdd /></button>
                             </div>
                         </div>
                     </div>
