@@ -55,20 +55,25 @@ const Nav = () => {
           <button onClick={() => scrollToSection('hero')} className="text-white cursor-pointer">Home</button>
           <Link to="/shades">
             <button className="text-white cursor-pointer">Shades</button>
-     
+
           </Link>
 
-          <button  onClick={() => scrollToSection('about')}  className="text-white cursor-pointer">About</button>
+          <button onClick={() => scrollToSection('about')} className="text-white cursor-pointer">About</button>
         </div>
 
         <img className="h-20 mr-45" src="/Lyra.png" alt="logo" />
 
-        <HugeiconsIcon
-          className="mr-10 cursor-pointer"
-          icon={ShoppingBasketFavorite01Icon}
-          size={26}
-          color="white"
-        />
+        <Link to="/mycart">
+          <button>
+            <HugeiconsIcon
+              className="mr-10 cursor-pointer"
+              icon={ShoppingBasketFavorite01Icon}
+              size={26}
+              color="white"
+            />
+
+          </button>
+        </Link>
       </div>
     </div>
   )

@@ -72,3 +72,46 @@ html, body {
 }
 
 
+.mycart-bg {
+ background: linear-gradient(
+    135deg,
+    #050505 0%,
+    #120406 30%,
+    #21090d 55%,
+    #050505 100%
+  );
+  
+}
+
+.cart-item {
+  display: flex;
+  gap: 20px;
+  padding: 18px;
+  
+
+  background: linear-gradient(
+    135deg,
+    rgba(8, 0, 0, 0.243),
+    rgba(7, 0, 0, 0.258)
+  );
+
+  
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.02),
+    0 10px 20px rgba(0,0,0,0.6);
+
+  margin-bottom: 18px;
+}
+.qty-btn {
+  background: linear-gradient(135deg, #4b0f1c, #7b1f34);
+  border-radius: 8px;
+  padding: 6px 13px;
+  color: white;
+  border: none;
+}
+
+
+

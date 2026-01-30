@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Shades from "./components/Shades";
 import lipstickdata from "./data/LipstickData";
 import Footer from "./components/Footer";
+import Mycart from "./components/Mycart";
 import { useState } from "react";
 
 
@@ -53,7 +54,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shades" element={<Shades data={lipstickdata} addtocart={addtocart} removeFromCart={removeFromCart}  cart={cart}/>} />
+        <Route path="/mycart" element={<Mycart cart={cart} removeFromCart={removeFromCart} addtocart={addtocart}/>}/>
       </Routes>
+
       <Footer/>
 
      

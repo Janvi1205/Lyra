@@ -28,7 +28,7 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
             const rowsize = 5;
 
             for (let i = 0; i < allcards.length; i += rowsize) {
-                const row = allcards.slice(i, i + rowsize);//// specific row of 5 cards: [0, 1, 2, 3, 4]
+                const row = allcards.slice(i, i + rowsize);// specific row of 5 cards: [0, 1, 2, 3, 4]
 
                 const center = row[2];
                 const neighbors = [row[1], row[3]];
@@ -37,7 +37,7 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
 
                 const t1 = gsap.timeline({
                     scrollTrigger: {
-                        trigger: center,
+                        trigger: center,  
                         start: "top 100%",
                         end: "top 2%",
                         scrub: 1,
@@ -86,10 +86,6 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
 
             }
         )
-
-
-
-
         return () => ctx.revert();
     }, []);
 
