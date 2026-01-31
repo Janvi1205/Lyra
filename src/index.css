@@ -158,6 +158,20 @@ html, body {
   cursor: pointer;
 }
 
+.shopping-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+
+  background: linear-gradient(135deg, #7b1f34, #b03455);
+
+  border: none;
+  color: white;
+
+ 
+
+  cursor: pointer;
+}
 
 
 

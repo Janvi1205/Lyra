@@ -26,6 +26,16 @@ const Mycart = ({ cart, addtocart, removeFromCart }) => {
             <div>
                 <h1 className="text-white text-4xl  font-serif">Your Cart</h1>
             </div>
+            {cartItems.length==0?(
+                <div className=" items-center mt-[10%] flex justify-cente flex-col">
+                    <h1 className="text-gray-400 text-4xl">Oops! nothing in the cart</h1>
+                    <Link to="/shades">
+                         <button className="shopping-btn mt-6">Start Shopping</button>
+                    </Link>
+
+                </div>
+
+            ):
             <div className="flex gap-30">
                 
                 <div className="flex flex-col gap-3 mt-14">
@@ -94,6 +104,8 @@ const Mycart = ({ cart, addtocart, removeFromCart }) => {
                     
                 </div>
             </div>
+            }
+            
 
         </div>
 
