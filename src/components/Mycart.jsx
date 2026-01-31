@@ -4,7 +4,6 @@ import { IoAdd } from "react-icons/io5";
 import { FaLock } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-
 const Mycart = ({ cart, addtocart, removeFromCart }) => {
 
     const cartItems = Object.values(cart);
@@ -14,7 +13,6 @@ const Mycart = ({ cart, addtocart, removeFromCart }) => {
     const formattedDate = deliveryDate.toLocaleDateString('en-US', {
         month: 'short',
         day: 'numeric',
-
     });
 
     const Subtotalvalue=cartItems.reduce((sum,val)=>sum+(val.price*val.quantity),0);
@@ -91,8 +89,6 @@ const Mycart = ({ cart, addtocart, removeFromCart }) => {
                         <button className="checkout-btn checkout-btn:hover flex items-center justify-center">
                              <FaLock />
                            <p className="ml-2"> Checkout Securely</p>
-                           
-
                         </button>
                     </div>
                     <div className="">
