@@ -53,7 +53,7 @@ const Nav = () => {
       >
         <div className="flex gap-7 ml-20">
           <button onClick={() => scrollToSection('hero')} className="text-white cursor-pointer">Home</button>
-          <Link to="/shades">
+          <Link to="/shades" onClick={() => window.scrollTo(0, 0)}>
             <button className="text-white cursor-pointer">Shades</button>
 
           </Link>
@@ -63,7 +63,7 @@ const Nav = () => {
 
         <img className="h-20 mr-45" src="/Lyra.png" alt="logo" />
 
-        <Link to="/mycart">
+        <Link to="/mycart" onClick={() => window.scrollTo(0, 0)}>
           <button>
             <HugeiconsIcon
               className="mr-10 cursor-pointer"

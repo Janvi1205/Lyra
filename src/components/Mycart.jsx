@@ -29,8 +29,8 @@ const Mycart = ({ cart, addtocart, removeFromCart }) => {
             {cartItems.length==0?(
                 <div className=" items-center mt-[10%] flex justify-cente flex-col">
                     <h1 className="text-gray-400 text-4xl">Oops! nothing in the cart</h1>
-                    <Link to="/shades">
-                         <button className="shopping-btn mt-6">Start Shopping</button>
+                    <Link to="/shades"onClick={() => window.scrollTo(0, 0)}>
+                         <button className="shopping-btn checkout-btn:hover mt-6">Start Shopping</button>
                     </Link>
 
                 </div>
@@ -40,10 +40,9 @@ const Mycart = ({ cart, addtocart, removeFromCart }) => {
                 
                 <div className="flex flex-col gap-3 mt-14">
                     {cartItems.map((item) => (
-                        <div className="h-47 w-180 ml-4 cart-item  rounded-2xl  ">
+                        <div className="h-47 w-180 ml-4 cart-item cart-item:hover  rounded-2xl   ">
                             <div className="items-center" >
                                 <img className="h-37 rounded-2xl" src={item.image} alt="" />
-
                             </div>
                             <div className=" w-80">
                                 <h1 className="text-white text-2xl font-medium">{item.colorname}</h1>
@@ -89,7 +88,7 @@ const Mycart = ({ cart, addtocart, removeFromCart }) => {
                         <p className="text-white text-lg">{Subtotalvalue+handlingfee}</p>
                     </div>
                     <div className="mt-5">
-                        <button className="checkout-btn flex items-center justify-center">
+                        <button className="checkout-btn checkout-btn:hover flex items-center justify-center">
                              <FaLock />
                            <p className="ml-2"> Checkout Securely</p>
                            
@@ -98,7 +97,7 @@ const Mycart = ({ cart, addtocart, removeFromCart }) => {
                     </div>
                     <div className="">
                         <Link to="/shades">
-                           <button className="continue-btn mt-3">Continue Shopping</button>
+                           <button className="continue-btn continue-btn:hover mt-3">Continue Shopping</button>
                         </Link>
                     </div>
                     
