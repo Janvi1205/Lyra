@@ -20,9 +20,9 @@ const Mycart = ({ cart, addtocart, removeFromCart }) => {
     const handlingfee=99;
 
     return (
-        <div className="mycart-bg px-22 py-20  min-h-screen">
+        <div className="mycart-bg px-22 py-20 -mt-15  min-h-screen">
             <div>
-                <h1 className="text-white text-4xl  font-serif">Your Cart</h1>
+                <h1 className="text-white text-4xl mt-10  font-serif">Your Cart</h1>
             </div>
             {cartItems.length==0?(
                 <div className=" items-center mt-[10%] flex justify-cente flex-col">

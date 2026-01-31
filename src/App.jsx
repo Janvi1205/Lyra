@@ -61,7 +61,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <Navbar cart={cart} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shades" element={<Shades data={lipstickdata} addtocart={addtocart} removeFromCart={removeFromCart} cart={cart} />} />

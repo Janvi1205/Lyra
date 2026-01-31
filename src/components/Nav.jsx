@@ -4,7 +4,8 @@ import gsap from "gsap"
 import { useLayoutEffect, useRef } from 'react'
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({cart}) => {
+  const cartItems = Object.values(cart);
 
   const navInnerRef = useRef(null);
   const navigate = useNavigate();
@@ -64,13 +65,17 @@ const Nav = () => {
         <img className="h-20 mr-45" src="/Lyra.png" alt="logo" />
 
         <Link to="/mycart" onClick={() => window.scrollTo(0, 0)}>
-          <button>
+          <button className='relative'>
             <HugeiconsIcon
               className="mr-10 cursor-pointer"
               icon={ShoppingBasketFavorite01Icon}
               size={26}
               color="white"
             />
+            {cartItems.length>0?(
+              <p className='absolute -top-2 left-3 text-xs text-white px-1.5 py-0.5 min-w-[20px] text-center  bg-[#d31414c4] rounded-full'>{cartItems.length}</p>
+            ):null}
+
 
           </button>
         </Link>

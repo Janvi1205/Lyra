@@ -3,6 +3,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import ShadeModal from "./SelectedModal"
+import { FaFilter } from "react-icons/fa";
+
 
 
 const Shades = ({ data, addtocart, cart, removeFromCart }) => {
@@ -10,6 +12,18 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
 
     const [selectedShade, setSelectedShade] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedFilter, setSelectedFilter] = useState("all");
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const filteredData = data.filter((item) => {
+        if (selectedFilter === "all") {
+            return true; // show all items
+        }
+        // Check if item's category matches selected filter
+        return item.category?.toLowerCase() === selectedFilter;
+    });
+
+
 
     const handleclick = (shade) => {
         setSelectedShade(shade);
@@ -37,7 +51,7 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
 
                 const t1 = gsap.timeline({
                     scrollTrigger: {
-                        trigger: center,  
+                        trigger: center,
                         start: "top 100%",
                         end: "top 2%",
                         scrub: 1,
@@ -95,17 +109,83 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
 
 
     return (
-        <div >
-            <div className="mt-[16%]">
+        <div className="relative" >
+
+            <div className="flex justify-end relative mt-16 mr-25">
+                <div className=" ml-40 absolute items-center flex ">
+                   
+                    <button
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)} 
+                        className="bg-white/10 text-white p-3 rounded-full border border-white/20 hover:bg-white/20"
+                    >
+                       <FaFilter />
+
+                    </button>
+
+                    {/* Dropdown Menu - Only shows when isDropdownOpen is true */}
+                    {isDropdownOpen && (
+                        <div className="absolute flex right-12 w-90 bg-zinc-900 border border-white/20 rounded-2xl overflow-hidden">
+
+                            {/* Option 1: All */}
+                            <button
+                                onClick={() => {
+                                    setSelectedFilter("all"); // Set filter to "all"
+                                    setIsDropdownOpen(false); // Close dropdown
+                                }}
+                                className="w-full px-6 py-3 text-left text-white hover:bg-white/10"
+                            >
+                                All
+                            </button>
+
+                            {/* Option 2: Matte */}
+                            <button
+                                onClick={() => {
+                                    setSelectedFilter("matte"); // Set filter to "matte"
+                                    setIsDropdownOpen(false); // Close dropdown
+                                }}
+                                className="w-full px-6 py-3 text-left text-white hover:bg-white/10"
+                            >
+                                Matte
+                            </button>
+
+                            {/* Option 3: Velvet */}
+                            <button
+                                onClick={() => {
+                                    setSelectedFilter("velvet"); // Set filter to "velvet"
+                                    setIsDropdownOpen(false); // Close dropdown
+                                }}
+                                className="w-full px-6 py-3 text-left text-white hover:bg-white/10"
+                            >
+                                Velvet
+                            </button>
+
+                            {/* Option 4: Satin */}
+                            <button
+                                onClick={() => {
+                                    setSelectedFilter("satin"); // Set filter to "satin"
+                                    setIsDropdownOpen(false); // Close dropdown
+                                }}
+                                className="w-full px-6 py-3 text-left text-white hover:bg-white/10"
+                            >
+                                Satin
+                            </button>
+                        </div>
+                    )}
+                </div>
+            </div>
+            <div className="mt-[10%]">
                 <h1 className="text-white text-animate text-5xl justify-center flex mt-10 font-serif">WHERE COLOR</h1>
                 <h1 className="text-white text-animate text-5xl justify-center flex mt-4 font-serif">BECOMES CONFIDENCE</h1>
                 <p className="text-gray-300 text-animate text-lg justify-center flex mt-5 ">Explore our full spectrum of shades designed to enhance your natural beauty</p>
                 <p className="text-gray-300 text-animate text-lg justify-center flex "> from subtle whispers of color to bold declarations of self-expression</p>
             </div>
 
+
+
+
             <div className="flex justify-center mt-28">
                 <div ref={gridRef} className=" grid grid-cols-5 gap-8 space-y-12 ">
-                    {data.map((elem) => (
+                    {filteredData.map((elem) => (
                         <div className="lips-card cursor-pointer " onClick={() => handleclick(elem)}>
                             <div className=" h-90 w-60 rounded-2xl flex flex-col overflow-hidden group relative">
 
