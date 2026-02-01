@@ -54,7 +54,7 @@ const SelectedModal = ({ isOpen, onClose, shade, addtocart, cart, removeFromCart
                     delay: 0.2
                 }
             );
-            
+
 
         }
     }, [isOpen]);
@@ -67,42 +67,50 @@ const SelectedModal = ({ isOpen, onClose, shade, addtocart, cart, removeFromCart
 
 
     return (
-        <div ref={modalRef} className="fixed inset-0 bg-black/90 grid grid-cols-2 items-center  z-50">
-            <div className="ml-[30%]">
-                <img ref={imageRef} className="h-110 rounded-2xl justify-center flex" src={shade.image} alt="" />
-                <IoClose onClick={() => onClose()} className="text-white text-4xl absolute -mt-130 ml-260 cursor-pointer" />
+        <div ref={modalRef} className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl w-full items-center">
 
-            </div>
-            <div ref={contentRef} className="mt-">
-                <div><h1 className="text-5xl font-serif  text-white  ml-10">{shade.colorname}</h1></div>
-                <div> <p className="text-red-600 text-[25px] font-bold ml-10 mt-1 ">₹{shade.price}</p></div>
-                <div>  <p className="w-100 px-3 h-50 ml-8 mt-5 text-gray-300">{shade.description}</p></div>
-                <div className="flex ml-11 gap-3 text-white">
-                    <p className="text-[20px] " >Finish :</p>
-                    <button className="border-red-700  rounded-xl border-2 px-3 mt-1">{shade.category}</button>
+                <div className="flex justify-center relative">
+                    <img ref={imageRef} className="h-64 sm:h-80 md:h-96 lg:h-110 rounded-2xl object-cover" src={shade.image} alt="" />
+                    <IoClose
+                        onClick={() => onClose()}
+                        className="text-white text-3xl sm:text-4xl absolute -top-10 right-0 sm:-top-8 sm:right-0 lg:fixed lg:top-6 lg:right-6 cursor-pointer hover:scale-110 transition-transform"
+                    />
                 </div>
-                <div className="mt-13 ml-10">
-                    {cartItem && cart[shade.product_id].quantity > 0 ? (
-                        <div   className="bg-white text-black py-2 w-90 justify-center  gap-25  rounded-xl flex cursor-pointer">
-                            <button onClick={() => removeFromCart(shade)} className="cursor-pointer "><GrSubtract /></button>
-                            <p className="text-2xl w-5">{cartItem.quantity}</p>
-                            <button onClick={() => addtocart(shade)} className="text-xl cursor-pointer "><IoAdd /></button>
-                        </div>
-                    ) : (
-                        <div>
-                            <button onClick={() => addtocart(shade)} className="bg-white text-black py-3 px-32 rounded-xl flex cursor-pointer ">Add to cart
-                                <p><HugeiconsIcon
-                                    className="ml-2  cursor-pointer"
-                                    icon={ShoppingBasketFavorite01Icon}
-                                    size={20}
-                                    color="black"
-                                /></p>
-                            </button>
-                        </div>
-                    )}
+
+
+                <div ref={contentRef} className="px-4 lg:px-8 text-center lg:text-left ">
+                    <div><h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-white">{shade.colorname}</h1></div>
+                    <div> <p className="text-red-600 text-xl sm:text-2xl lg:text-[25px] font-bold mt-1">₹{shade.price}</p></div>
+                    <div ><p className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-sm mt-4 sm:mt-5 text-sm sm:text-base text-gray-300 mx-auto lg:mx-0">{shade.description}</p></div>
+                    <div className="flex justify-center lg:justify-start text-center gap-3 text-white mt-4">
+                        <p className="text-lg sm:text-[20px]">Finish :</p>
+                        <button className="border-red-700 rounded-xl border-2 px-3 py-1 text-sm sm:text-base">{shade.category}</button>
+                    </div>
+                    <div className="mt-8 sm:mt-10 lg:mt-13">
+                        {cartItem && cart[shade.product_id].quantity > 0 ? (
+                            <div className="bg-white text-black py-2 sm:py-3 w-full max-w-xs sm:max-w-sm mx-auto lg:mx-0 justify-center gap-12 sm:gap-20 rounded-xl flex cursor-pointer">
+                                <button onClick={() => removeFromCart(shade)} className="cursor-pointer px-2"><GrSubtract /></button>
+                                <p className="text-xl sm:text-2xl w-5 text-center">{cartItem.quantity}</p>
+                                <button onClick={() => addtocart(shade)} className="text-xl cursor-pointer px-2"><IoAdd /></button>
+                            </div>
+                        ) : (
+                            <div className="flex justify-center lg:justify-start">
+                                <button onClick={() => addtocart(shade)} className="bg-white text-black py-3 px-12 w-full max-w-xs sm:max-w-sm mx-auto lg:mx-0 sm:px-20 lg:px-24 rounded-xl flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+                                    <span>Add to cart</span>
+                                    <HugeiconsIcon
+                                        className="ml-2 cursor-pointer"
+                                        icon={ShoppingBasketFavorite01Icon}
+                                        size={20}
+                                        color="black"
+                                    />
+                                </button>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
     )
 }
-export default SelectedModal; 
+export default SelectedModal;

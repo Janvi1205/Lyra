@@ -57,14 +57,14 @@ const Trendingsection = () => {
             backgroundColor: lipstickData[0].bgColor
         });
 
-        gsap.set(lipstick,       //made all images hidden
+        gsap.set(lipstick,       
             {
                 x: 100,
                 opacity: 0
             }
         )
 
-        gsap.set(lipstick[0],    //display only first img
+        gsap.set(lipstick[0],    
             {
                 opacity: 1,
                 x: 0
@@ -73,7 +73,7 @@ const Trendingsection = () => {
 
         let index = 0;
         gsap.timeline({ repeat: -1 }).to({}, {
-            duration: 4, //Every 4 seconds, onComplete runs
+            duration: 4, 
             onComplete: () => {
                 const current = lipstick[index];
                 const next = lipstick[(index + 1) % lipstick.length]
@@ -140,45 +140,41 @@ const Trendingsection = () => {
     }, []);
 
     return (
-        <div className=" h-[600px] section-bg">
-            <div className="flex justify-center mt-10">
-                <h1 className="text-white text-3xl mt-10 ">Trending Now </h1>
-
-
+        <div className="min-h-[500px] sm:min-h-[550px] md:min-h-[600px] lg:h-[700px] section-bg py-8 sm:py-10 overflow-hidden">
+            <div className="flex justify-center">
+                <h1 className="text-white text-2xl sm:text-3xl mt-6 sm:mt-10">Trending Now</h1>
             </div>
-            <div className="relative w-[350px] h-[350px] mx-auto   ">
+            
+            <div className="relative w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px] mx-auto">
                 <img className="lip absolute inset-0" src="/lipstick1.png" alt="" />
                 <img className="lip absolute inset-0" src="/lipstick2.png" alt="" />
                 <img className="lip absolute inset-0" src="/lipstick3.png" alt="" />
             </div>
-            <div className="absolute -mt-60 ml-22 flex gap-110">
-                <div>
-                    <h1 className="text-white text-5xl font-serif title ">  MY COMFY MATTE</h1>
-                    <h3 className="text-white/80 subtitle mt-10 text-2xl subtitle">
+            
+            <div className="relative lg:absolute lg:-mt-60 left-0 right-0 px-4 sm:px-6 md:px-8 flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start gap-6 lg:gap-0 max-w-7xl mx-auto mt-24 ">
+                <div className="max-w-md text-center lg:text-left">
+                    <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif title">MY COMFY MATTE</h1>
+                    <h3 className="text-white/80 subtitle mt-4 sm:mt-6 lg:mt-10 text-lg sm:text-xl lg:text-2xl">
                         RICH COLOR, LIGHTWEIGHT FEEL
                     </h3>
 
-                    <p className="text-white/70 desc max-w-md mt-3 desc">
+                    <p className="text-white/70 desc max-w-md mt-3 text-sm sm:text-base">
                         Instantly provides rich color in a single stroke, featuring an ultra-enveloping texture and a lightweight, comfortable sensation on the lips.
                     </p>
                 </div>
-                <div>
-                    <h3 className="text-white text-2xl font-serif rytdesc">WHY IT STANDS OUT </h3>
-                    <ul className="text-white/80 space-y-2  mt-5 text-lg ml-2 list-disc bullets">
+                
+                <div className="max-w-md text-center lg:text-left">
+                    <h3 className="text-white text-xl sm:text-2xl font-serif rytdesc">WHY IT STANDS OUT</h3>
+                    <ul className="text-white/80 space-y-2 mt-3 sm:mt-5 text-sm sm:text-base lg:text-lg ml-0 lg:ml-2 list-none lg:list-disc bullets">
                         <li>Impactful one-stroke color payoff</li>
                         <li>Creamier and richer formula</li>
                         <li>Seamlessly glides on the lips</li>
-                        <li> Based on a self-evaluation test</li>
+                        <li>Based on a self-evaluation test</li>
                     </ul>
                 </div>
-
-
-
-
             </div>
-
         </div>
-
     )
 }
+
 export default Trendingsection;

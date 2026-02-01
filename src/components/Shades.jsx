@@ -17,9 +17,9 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
 
     const filteredData = data.filter((item) => {
         if (selectedFilter === "all") {
-            return true; // show all items
+            return true; 
         }
-        // Check if item's category matches selected filter
+       
         return item.category?.toLowerCase() === selectedFilter;
     });
 
@@ -39,21 +39,38 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
         const ctx = gsap.context(() => {
 
             const allcards = gsap.utils.toArray(".lips-card");
-            const rowsize = 5;
+            const rowsize = window.innerWidth >= 1024 ? 5 : window.innerWidth >= 768 ? 3 : 2;
 
             for (let i = 0; i < allcards.length; i += rowsize) {
-                const row = allcards.slice(i, i + rowsize);// specific row of 5 cards: [0, 1, 2, 3, 4]
+                const row = allcards.slice(i, i + rowsize);
 
-                const center = row[2];
-                const neighbors = [row[1], row[3]];
-                const edges = [row[0], row[4]];
+                const centerIndex = Math.floor(row.length / 2);
+                const center = row[centerIndex];
+                
+                const neighbors = [];
+                const edges = [];
+                
+                if (centerIndex > 0) 
+                {
+                    neighbors.push(row[centerIndex - 1]);
+                }
+                   
+                if (centerIndex < row.length - 1)
+                {
+                    neighbors.push(row[centerIndex + 1]);
+                } 
+                
+                if (row.length >= 3) {
+                    if (row[0] && row[0] !== center && !neighbors.includes(row[0])) edges.push(row[0]);
+                    if (row[row.length - 1] && row[row.length - 1] !== center && !neighbors.includes(row[row.length - 1])) edges.push(row[row.length - 1]);
+                }
 
 
                 const t1 = gsap.timeline({
                     scrollTrigger: {
                         trigger: center,
                         start: "top 100%",
-                        end: "top 2%",
+                        end: window.innerWidth === 1024 ? "top 2%" : "top 30%",
                         scrub: 1,
                     }
                 })
@@ -109,63 +126,63 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
 
 
     return (
-        <div className="relative" >
+        <div className="relative px-4 sm:px-6 lg:px-8" >
 
-            <div className="flex justify-end relative mt-16 mr-25">
-                <div className=" ml-40 absolute items-center flex ">
+            <div className="flex justify-end relative mt-8 sm:mt-12 lg:mt-16 mr-4 sm:mr-10 lg:mr-25">
+                <div className="ml-0 sm:ml-20 lg:ml-40 absolute items-center flex">
                    
                     <button
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)} 
-                        className="bg-white/10 text-white p-3 rounded-full border border-white/20 hover:bg-white/20"
+                        className="bg-white/10 text-white p-2 sm:p-3 rounded-full border border-white/20 hover:bg-white/20"
                     >
                        <FaFilter />
 
                     </button>
 
-                    {/* Dropdown Menu - Only shows when isDropdownOpen is true */}
+                
                     {isDropdownOpen && (
-                        <div className="absolute flex right-12 w-90 bg-zinc-900 border border-white/20 rounded-2xl overflow-hidden">
+                        <div className="absolute flex flex-col sm:flex-row right-0 sm:right-12 w-40 sm:w-auto bg-zinc-900 border border-white/20 rounded-2xl overflow-hidden z-10">
 
-                            {/* Option 1: All */}
+                         
                             <button
                                 onClick={() => {
-                                    setSelectedFilter("all"); // Set filter to "all"
-                                    setIsDropdownOpen(false); // Close dropdown
+                                    setSelectedFilter("all"); 
+                                    setIsDropdownOpen(false); 
                                 }}
-                                className="w-full px-6 py-3 text-left text-white hover:bg-white/10"
+                                className="w-full px-4 sm:px-6 py-3 text-left text-white hover:bg-white/10"
                             >
                                 All
                             </button>
 
-                            {/* Option 2: Matte */}
+                          
                             <button
                                 onClick={() => {
-                                    setSelectedFilter("matte"); // Set filter to "matte"
-                                    setIsDropdownOpen(false); // Close dropdown
+                                    setSelectedFilter("matte");
+                                    setIsDropdownOpen(false); 
                                 }}
-                                className="w-full px-6 py-3 text-left text-white hover:bg-white/10"
+                                className="w-full px-4 sm:px-6 py-3 text-left text-white hover:bg-white/10"
                             >
                                 Matte
                             </button>
 
-                            {/* Option 3: Velvet */}
+                     
                             <button
                                 onClick={() => {
-                                    setSelectedFilter("velvet"); // Set filter to "velvet"
-                                    setIsDropdownOpen(false); // Close dropdown
+                                    setSelectedFilter("velvet"); 
+                                    setIsDropdownOpen(false); 
                                 }}
-                                className="w-full px-6 py-3 text-left text-white hover:bg-white/10"
+                                className="w-full px-4 sm:px-6 py-3 text-left text-white hover:bg-white/10"
                             >
                                 Velvet
                             </button>
 
-                            {/* Option 4: Satin */}
+                            
                             <button
                                 onClick={() => {
-                                    setSelectedFilter("satin"); // Set filter to "satin"
-                                    setIsDropdownOpen(false); // Close dropdown
+                                    setSelectedFilter("satin"); 
+                                    setIsDropdownOpen(false); 
                                 }}
-                                className="w-full px-6 py-3 text-left text-white hover:bg-white/10"
+                                className="w-full px-4 sm:px-6 py-3 text-left text-white hover:bg-white/10"
                             >
                                 Satin
                             </button>
@@ -173,25 +190,25 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
                     )}
                 </div>
             </div>
-            <div className="mt-[10%]">
-                <h1 className="text-white text-animate text-5xl justify-center flex mt-10 font-serif">WHERE COLOR</h1>
-                <h1 className="text-white text-animate text-5xl justify-center flex mt-4 font-serif">BECOMES CONFIDENCE</h1>
-                <p className="text-gray-300 text-animate text-lg justify-center flex mt-5 ">Explore our full spectrum of shades designed to enhance your natural beauty</p>
-                <p className="text-gray-300 text-animate text-lg justify-center flex "> from subtle whispers of color to bold declarations of self-expression</p>
+            <div className="mt-[50%] sm:mt-[12%] lg:mt-[12%] px-4">
+                <h1 className="text-white text-animate text-3xl sm:text-4xl lg:text-6xl justify-center flex mt-10 font-serif text-center">WHERE COLOR</h1>
+                <h1 className="text-white text-animate text-3xl sm:text-4xl lg:text-6xl justify-center flex  font-serif text-center">BECOMES CONFIDENCE</h1>
+                <p className="text-gray-300 text-animate text-sm sm:text-base lg:text-lg justify-center flex mt-5 text-center px-4">Explore our full spectrum of shades designed to enhance your natural beauty</p>
+                <p className="text-gray-300 text-animate text-sm sm:text-base lg:text-lg justify-center flex text-center px-4">from subtle whispers of color to bold declarations of self-expression</p>
             </div>
 
 
 
 
-            <div className="flex justify-center mt-28">
-                <div ref={gridRef} className=" grid grid-cols-5 gap-8 space-y-12 ">
+            <div className="flex justify-center mt-14 sm:mt-20 lg:mt-72">
+                <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 space-y-6 sm:space-y-8 lg:space-y-12 ">
                     {filteredData.map((elem) => (
-                        <div className="lips-card cursor-pointer " onClick={() => handleclick(elem)}>
-                            <div className=" h-90 w-60 rounded-2xl flex flex-col overflow-hidden group relative">
+                        <div key={elem.id} className="lips-card cursor-pointer" onClick={() => handleclick(elem)}>
+                            <div className="h-60 sm:h-72 lg:h-90 w-full sm:w-52 lg:w-60 rounded-2xl flex flex-col overflow-hidden group relative">
 
                                 <img className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40" src={elem.image} alt="" />
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <h3 className="text-white text-2xl font-semibold text-center px-4">{elem.colorname}</h3>
+                                    <h3 className="text-white text-lg sm:text-xl lg:text-2xl font-semibold text-center px-4">{elem.colorname}</h3>
                                 </div>
 
                             </div>
