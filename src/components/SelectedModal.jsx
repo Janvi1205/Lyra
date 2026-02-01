@@ -6,6 +6,7 @@ import { IoAdd } from "react-icons/io5";
 import gsap from "gsap";
 import { useEffect } from "react";
 import { useRef } from "react";
+import Button from "../Styled component/Addtocart"
 
 
 
@@ -95,15 +96,9 @@ const SelectedModal = ({ isOpen, onClose, shade, addtocart, cart, removeFromCart
                                 <button onClick={() => addtocart(shade)} className="text-xl cursor-pointer px-2"><IoAdd /></button>
                             </div>
                         ) : (
-                            <div className="flex justify-center lg:justify-start">
-                                <button onClick={() => addtocart(shade)} className="bg-white text-black py-3 px-12 w-full max-w-xs sm:max-w-sm mx-auto lg:mx-0 sm:px-20 lg:px-24 rounded-xl flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
-                                    <span>Add to cart</span>
-                                    <HugeiconsIcon
-                                        className="ml-2 cursor-pointer"
-                                        icon={ShoppingBasketFavorite01Icon}
-                                        size={20}
-                                        color="black"
-                                    />
+                            <div className="flex  justify-center lg:justify-start">
+                                <button onClick={() => addtocart(shade)} className="bg-white text-black py-1 px-12 w-full max-w-xs sm:max-w-sm mx-auto lg:mx-0 sm:px-20 lg:px-24 rounded-xl flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+                                    <Button/>
                                 </button>
                             </div>
                         )}

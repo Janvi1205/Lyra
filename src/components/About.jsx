@@ -86,8 +86,8 @@ const About = () => {
     }, []);
 
     return (
-        <div id="about" className="flex flex-col lg:flex-row items-center justify-center gap-6 md:gap-8 lg:gap-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 md:py-16 lg:py-20">
-
+        <div id="about" className="flex flex-col relative lg:flex-row items-center justify-center gap-6 md:gap-8 lg:gap-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 md:py-16 lg:py-20">
+          <div className="absolute inset-0 bg-linear-to-r from-black via-black/40 to-transparent" />
             <div className="w-full lg:w-auto flex justify-center lg:justify-start">
                 <video
                     ref={vidref}

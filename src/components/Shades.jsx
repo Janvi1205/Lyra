@@ -7,19 +7,39 @@ import { FaFilter } from "react-icons/fa";
 
 
 
-const Shades = ({ data, addtocart, cart, removeFromCart }) => {
+const Shades = ({ addtocart, cart, removeFromCart }) => {
     const gridRef = useRef(null);
 
     const [selectedShade, setSelectedShade] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedFilter, setSelectedFilter] = useState("all");
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
-    const filteredData = data.filter((item) => {
-        if (selectedFilter === "all") {
-            return true; 
+    useEffect(() => {
+        fetchProducts();
+    }, [])
+    const fetchProducts = async () => {
+        try {
+            const res = await fetch("https://697f3bf3d1548030ab657af2.mockapi.io/lipstick");
+            const data = await res.json();
+            setProducts(data);
         }
-       
+        catch (err) {
+            setError(true)
+        }
+        finally {
+            setLoading(false)
+        }
+    }
+
+    const filteredData = products.filter((item) => {
+        if (selectedFilter === "all") {
+            return true;
+        }
+
         return item.category?.toLowerCase() === selectedFilter;
     });
 
@@ -37,6 +57,7 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
     }
     useEffect(() => {
         const ctx = gsap.context(() => {
+            ScrollTrigger.refresh();
 
             const allcards = gsap.utils.toArray(".lips-card");
             const rowsize = window.innerWidth >= 1024 ? 5 : window.innerWidth >= 768 ? 3 : 2;
@@ -46,20 +67,18 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
 
                 const centerIndex = Math.floor(row.length / 2);
                 const center = row[centerIndex];
-                
+
                 const neighbors = [];
                 const edges = [];
-                
-                if (centerIndex > 0) 
-                {
+
+                if (centerIndex > 0) {
                     neighbors.push(row[centerIndex - 1]);
                 }
-                   
-                if (centerIndex < row.length - 1)
-                {
+
+                if (centerIndex < row.length - 1) {
                     neighbors.push(row[centerIndex + 1]);
-                } 
-                
+                }
+
                 if (row.length >= 3) {
                     if (row[0] && row[0] !== center && !neighbors.includes(row[0])) edges.push(row[0]);
                     if (row[row.length - 1] && row[row.length - 1] !== center && !neighbors.includes(row[row.length - 1])) edges.push(row[row.length - 1]);
@@ -118,11 +137,39 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
             }
         )
         return () => ctx.revert();
-    }, []);
+    }, [products]);
 
 
 
 
+
+    if (loading) {
+        return (
+            <div className="min-h-screen flex justify-center items-center px-4">
+                <p className="text-white text-base sm:text-lg lg:text-xl text-center">
+                    Loading products...
+                </p>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="min-h-screen flex flex-col justify-center items-center px-4 text-center gap-4">
+                <p className="text-white text-base sm:text-lg lg:text-xl">
+                    Failed to load products
+                </p>
+
+                <button
+                    className="border px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-lg text-white
+                   cursor-pointer hover:bg-amber-100 hover:text-black transition"
+                    onClick={fetchProducts}
+                >
+                    Retry
+                </button>
+            </div>
+        );
+    }
 
 
     return (
@@ -130,57 +177,57 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
 
             <div className="flex justify-end relative mt-8 sm:mt-12 lg:mt-16 mr-4 sm:mr-10 lg:mr-25">
                 <div className="ml-0 sm:ml-20 lg:ml-40 absolute items-center flex">
-                   
+
                     <button
-                        onClick={() => setIsDropdownOpen(!isDropdownOpen)} 
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         className="bg-white/10 text-white p-2 sm:p-3 rounded-full border border-white/20 hover:bg-white/20"
                     >
-                       <FaFilter />
+                        <FaFilter />
 
                     </button>
 
-                
+
                     {isDropdownOpen && (
                         <div className="absolute flex flex-col sm:flex-row right-0 sm:right-12 w-40 sm:w-auto bg-zinc-900 border border-white/20 rounded-2xl overflow-hidden z-10">
 
-                         
+
                             <button
                                 onClick={() => {
-                                    setSelectedFilter("all"); 
-                                    setIsDropdownOpen(false); 
+                                    setSelectedFilter("all");
+                                    setIsDropdownOpen(false);
                                 }}
                                 className="w-full px-4 sm:px-6 py-3 text-left text-white hover:bg-white/10"
                             >
                                 All
                             </button>
 
-                          
+
                             <button
                                 onClick={() => {
                                     setSelectedFilter("matte");
-                                    setIsDropdownOpen(false); 
+                                    setIsDropdownOpen(false);
                                 }}
                                 className="w-full px-4 sm:px-6 py-3 text-left text-white hover:bg-white/10"
                             >
                                 Matte
                             </button>
 
-                     
+
                             <button
                                 onClick={() => {
-                                    setSelectedFilter("velvet"); 
-                                    setIsDropdownOpen(false); 
+                                    setSelectedFilter("velvet");
+                                    setIsDropdownOpen(false);
                                 }}
                                 className="w-full px-4 sm:px-6 py-3 text-left text-white hover:bg-white/10"
                             >
                                 Velvet
                             </button>
 
-                            
+
                             <button
                                 onClick={() => {
-                                    setSelectedFilter("satin"); 
-                                    setIsDropdownOpen(false); 
+                                    setSelectedFilter("satin");
+                                    setIsDropdownOpen(false);
                                 }}
                                 className="w-full px-4 sm:px-6 py-3 text-left text-white hover:bg-white/10"
                             >
@@ -197,10 +244,7 @@ const Shades = ({ data, addtocart, cart, removeFromCart }) => {
                 <p className="text-gray-300 text-animate text-sm sm:text-base lg:text-lg justify-center flex text-center px-4">from subtle whispers of color to bold declarations of self-expression</p>
             </div>
 
-
-
-
-            <div className="flex justify-center mt-14 sm:mt-20 lg:mt-72">
+            <div className="flex justify-center mt-40    sm:mt-20 lg:mt-72">
                 <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 space-y-6 sm:space-y-8 lg:space-y-12 ">
                     {filteredData.map((elem) => (
                         <div key={elem.id} className="lips-card cursor-pointer" onClick={() => handleclick(elem)}>

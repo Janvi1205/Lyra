@@ -2,14 +2,23 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Nav";
 import Home from "./components/Home";
 import Shades from "./components/Shades";
-import lipstickdata from "./data/LipstickData";
+
 import Footer from "./components/Footer";
 import Mycart from "./components/Mycart";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 const App = () => {
-  const [cart, setcart] = useState({});//i used object for cart instead of array coz it will take o(1) to itereate then get the data whereas array would take o(N)
+  // Using a function inside useState means it only runs ONCE when component mounts (lazy initialization)
+  const [cart, setcart] = useState(() => {
+    const savedCart = localStorage.getItem('lyra-cart');
+    return savedCart ? JSON.parse(savedCart) : {};
+  });
+
+ 
+  useEffect(() => {
+    localStorage.setItem('lyra-cart', JSON.stringify(cart));
+  }, [cart]);
 
   const addtocart = (shade) => {
     if (cart[shade.product_id]) //chcking if the item exist or not?
@@ -55,16 +64,12 @@ const App = () => {
 
 
   }
-
-
-
-
   return (
     <div className="min-h-screen">
       <Navbar cart={cart} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shades" element={<Shades data={lipstickdata} addtocart={addtocart} removeFromCart={removeFromCart} cart={cart} />} />
+        <Route path="/shades" element={<Shades  addtocart={addtocart} removeFromCart={removeFromCart} cart={cart} />} />
         <Route path="/mycart" element={<Mycart cart={cart} removeFromCart={removeFromCart} addtocart={addtocart} />} />
       </Routes>
 
