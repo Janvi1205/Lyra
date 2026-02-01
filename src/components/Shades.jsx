@@ -4,6 +4,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import ShadeModal from "./SelectedModal"
 import { FaFilter } from "react-icons/fa";
+import { Waveform } from 'ldrs/react'
+import 'ldrs/react/Waveform.css'
+
+
+
 
 
 
@@ -147,7 +152,12 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
         return (
             <div className="min-h-screen flex justify-center items-center px-4">
                 <p className="text-white text-base sm:text-lg lg:text-xl text-center">
-                    Loading products...
+                    <Waveform
+                        size="35"
+                        stroke="3.5"
+                        speed="1"
+                        color="white"
+                    />
                 </p>
             </div>
         );
