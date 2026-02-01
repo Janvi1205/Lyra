@@ -45,112 +45,118 @@ const Trendingsection = () => {
             bgColor: "#b10e1f"
         },
     ];
-
-
-
     useLayoutEffect(() => {
-        const lipstick = gsap.utils.toArray(".lip");
 
-        const section = document.querySelector(".section-bg");
+        const ctx = gsap.context(() => {
 
-        gsap.set(section, {
-            backgroundColor: lipstickData[0].bgColor
-        });
+            const lipstick = gsap.utils.toArray(".lip");
+            const section = document.querySelector(".section-bg");
 
-        gsap.set(lipstick,       
-            {
+            gsap.set(section, {
+                backgroundColor: lipstickData[0].bgColor
+            });
+
+            gsap.set(lipstick, {
                 x: 100,
                 opacity: 0
-            }
-        )
+            });
 
-        gsap.set(lipstick[0],    
-            {
+            gsap.set(lipstick[0], {
                 opacity: 1,
                 x: 0
-            }
-        )
+            });
 
-        let index = 0;
-        gsap.timeline({ repeat: -1 }).to({}, {
-            duration: 4, 
-            onComplete: () => {
-                const current = lipstick[index];
-                const next = lipstick[(index + 1) % lipstick.length]
+            let index = 0;
 
-                gsap.to(current, {
-                    x: -400,
-                    opacity: 0,
-                    duration: 0.8,
-                    ease: "power3.inOut",
-                    scale: 0.65
-                })
+            gsap.timeline({ repeat: -1 }).to({}, {
+                duration: 4,
+                onComplete: () => {
 
-                gsap.set(next, {
-                    x: 400,
-                    opacity: 0,
-                    scale: 0.65
+                    const current = lipstick[index];
+                    const next = lipstick[(index + 1) % lipstick.length];
 
-                })
+                    gsap.to(current, {
+                        x: -400,
+                        opacity: 0,
+                        duration: 0.8,
+                        ease: "power3.inOut",
+                        scale: 0.65
+                    });
 
-                gsap.to(next, {
-                    x: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    ease: "power3.inOut",
-                    scale: 1
+                    gsap.set(next, {
+                        x: 400,
+                        opacity: 0,
+                        scale: 0.65
+                    });
 
-                })
-                index = (index + 1) % lipstick.length;
+                    gsap.to(next, {
+                        x: 0,
+                        opacity: 1,
+                        duration: 0.8,
+                        ease: "power3.inOut",
+                        scale: 1
+                    });
 
-                const title = document.querySelector(".title");
-                const subtitle = document.querySelector(".subtitle");
-                const desc = document.querySelector(".desc");
-                const bullets = document.querySelectorAll(".bullets li");
+                    index = (index + 1) % lipstick.length;
 
+                    const title = document.querySelector(".title");
+                    const subtitle = document.querySelector(".subtitle");
+                    const desc = document.querySelector(".desc");
+                    const bullets = document.querySelectorAll(".bullets li");
 
-                gsap.to(section, {
-                    backgroundColor: lipstickData[index].bgColor,
-                    duration: 0.8,
-                    ease: "power2.inOut"
-                });
+                    gsap.to(section, {
+                        backgroundColor: lipstickData[index].bgColor,
+                        duration: 0.8,
+                        ease: "power2.inOut"
+                    });
 
-                gsap.to([title, subtitle, desc, bullets], {
-                    opacity: 0,
-                    y: 10,
-                    duration: 0.4,
-                    onComplete: () => {
-                        title.innerText = lipstickData[index].title;
-                        subtitle.innerText = lipstickData[index].subtitle;
-                        desc.innerText = lipstickData[index].description;
+                    gsap.to([title, subtitle, desc, bullets], {
+                        opacity: 0,
+                        y: 10,
+                        duration: 0.4,
+                        onComplete: () => {
 
-                        bullets.forEach((li, i) => {
-                            li.innerText = lipstickData[index].bullets[i];
-                        });
+                            title.innerText = lipstickData[index].title;
+                            subtitle.innerText = lipstickData[index].subtitle;
+                            desc.innerText = lipstickData[index].description;
 
-                        gsap.to([title, subtitle, desc, bullets], {
-                            opacity: 1,
-                            y: 0,
-                            duration: 0.4,
-                        });
-                    },
-                });
-            }
-        })
+                            bullets.forEach((li, i) => {
+                                li.innerText = lipstickData[index].bullets[i];
+                            });
+
+                            gsap.to([title, subtitle, desc, bullets], {
+                                opacity: 1,
+                                y: 0,
+                                duration: 0.4,
+                            });
+                        },
+                    });
+                }
+            });
+
+        });
+
+        return () => ctx.revert();   
+
     }, []);
+
+
+
+
+
 
     return (
         <div className="min-h-[500px] sm:min-h-[550px] md:min-h-[600px] lg:h-[700px] section-bg py-8 sm:py-10 overflow-hidden">
             <div className="flex justify-center">
-                <h1 className="text-white text-2xl sm:text-3xl mt-6 sm:mt-10">Trending Now</h1>
+                <h1 className="text-white text-3xl lg:text-5xl font-serif sm:text-3xl mt-6 sm:mt-10">Trending Now</h1>
             </div>
-            
-            <div className="relative w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px] mx-auto">
+
+            <div className="relative w-[250px] h-[280px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px] mx-auto">
                 <img className="lip absolute inset-0" src="/lipstick1.png" alt="" />
                 <img className="lip absolute inset-0" src="/lipstick2.png" alt="" />
                 <img className="lip absolute inset-0" src="/lipstick3.png" alt="" />
             </div>
-            
+
             <div className="relative lg:absolute lg:-mt-60 left-0 right-0 px-4 sm:px-6 md:px-8 flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start gap-6 lg:gap-0 max-w-7xl mx-auto mt-24 ">
                 <div className="max-w-md text-center lg:text-left">
                     <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif title">MY COMFY MATTE</h1>
@@ -162,7 +168,7 @@ const Trendingsection = () => {
                         Instantly provides rich color in a single stroke, featuring an ultra-enveloping texture and a lightweight, comfortable sensation on the lips.
                     </p>
                 </div>
-                
+
                 <div className="max-w-md text-center lg:text-left">
                     <h3 className="text-white text-xl sm:text-2xl font-serif rytdesc">WHY IT STANDS OUT</h3>
                     <ul className="text-white/80 space-y-2 mt-3 sm:mt-5 text-sm sm:text-base lg:text-lg ml-0 lg:ml-2 list-none lg:list-disc bullets">
