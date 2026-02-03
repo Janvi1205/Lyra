@@ -48,12 +48,9 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
         return item.category?.toLowerCase() === selectedFilter;
     });
 
-
-
     const handleclick = (shade) => {
         setSelectedShade(shade);
         setIsModalOpen(true);
-
     }
     const closemodal = () => {
         setIsModalOpen(false);
