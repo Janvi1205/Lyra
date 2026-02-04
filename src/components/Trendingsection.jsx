@@ -14,7 +14,7 @@ const Trendingsection = () => {
                 "Impactful one-stroke color payoff",
                 "Creamier and richer formula",
                 "Seamlessly glides on the lips",
-                "Based on a self-evaluation test",
+                "Based on a self-evaluation test",``
             ],
             bgColor: "#4C0B188C"
         },
@@ -163,6 +163,7 @@ const Trendingsection = () => {
                     <h3 className="text-white/80 subtitle mt-4 sm:mt-6 lg:mt-10 text-lg sm:text-xl lg:text-2xl">
                         RICH COLOR, LIGHTWEIGHT FEEL
                     </h3>
+
 
                     <p className="text-white/70 desc max-w-md mt-3 text-sm sm:text-base">
                         Instantly provides rich color in a single stroke, featuring an ultra-enveloping texture and a lightweight, comfortable sensation on the lips.

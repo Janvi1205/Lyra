@@ -60,7 +60,7 @@ const Mycart = ({ cart, addtocart, removeFromCart }) => {
                         </div>
                     ))}
                 </div>
-
+                
                 <div className="p-6 order-summary w-full lg:w-90 mt-8 lg:mt-14 h-auto lg:h-100 mx-auto lg:mx-0 max-w-md lg:max-w-none">
                     <h1 className="text-white font-serif text-xl sm:text-2xl">Order Summary</h1>
                     <div className="mt-3 flex items-center justify-between">
@@ -95,6 +95,7 @@ const Mycart = ({ cart, addtocart, removeFromCart }) => {
             </div>
             }
         </div>
+        
     )
 }
 export default Mycart;
