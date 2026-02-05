@@ -38,8 +38,8 @@ const Testimonials = ({ data }) => {
     const visibleTestimonials = data.slice(index, index + itemsToShow);
 
     return (
-        <div className="bg-[#7f0d247e] min-h-[570px] py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
-            <div className="text-3xl sm:text-4xl lg:text-5xl text-center text-white mb-8 sm:mb-12 lg:mb-16">
+        <div className="bg-[#7f0d247e] min-h-142.5 py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+            <div style={{ fontFamily: "Amaranth" }} className="text-3xl sm:text-4xl lg:text-5xl text-center text-white mb-8 sm:mb-12 lg:mb-16">
                 Why They Choose Lyra
             </div>
             
@@ -47,7 +47,7 @@ const Testimonials = ({ data }) => {
                 {visibleTestimonials.map((item, idx) => (
                     <div 
                         key={idx}
-                        className="glass-card rounded-3xl p-6 sm:p-7 lg:p-9 min-h-[200px] sm:min-h-[250px] flex flex-col"
+                        className="glass-card rounded-3xl p-6 sm:p-7 lg:p-9 min-h-50 sm:min-h-62.5 flex flex-col"
                     >
                         <h2 className="text-white text-lg sm:text-xl font-semibold">
                             {item.name}
@@ -55,7 +55,7 @@ const Testimonials = ({ data }) => {
                         <h3 className="text-white text-sm sm:text-base mt-1 opacity-80">
                             {item.role}
                         </h3>
-                        <p className="text-white text-sm sm:text-base mt-3 flex-grow">
+                        <p className="text-white text-sm sm:text-base mt-3 grow">
                             {item.review}
                         </p>
                     </div>

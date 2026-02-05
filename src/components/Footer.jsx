@@ -26,7 +26,7 @@ const Footer = () => {
                         <div>
                             <h3 className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">SHOP</h3>
                             <ul className="space-y-2 text-gray-400 text-xs sm:text-sm">
-                               <Link to="/shades">
+                               <Link to="/shades" onClick={() => window.scrollTo(0, 0)}>
                                 <li className="hover:text-white cursor-pointer transition-colors">All Shades</li>
                                </Link>
                                 <li className="hover:text-white cursor-pointer mt-2 transition-colors">Best Sellers</li>

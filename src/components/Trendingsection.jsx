@@ -69,7 +69,7 @@ const Trendingsection = () => {
             let index = 0;
 
             gsap.timeline({ repeat: -1 }).to({}, {
-                duration: 4,
+                duration: 2,
                 onComplete: () => {
 
                     const current = lipstick[index];

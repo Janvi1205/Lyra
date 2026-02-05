@@ -183,11 +183,11 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
         <div className="relative px-4 sm:px-6 lg:px-8" >
 
             <div className="flex justify-end relative mt-8 sm:mt-12 lg:mt-16 mr-4 sm:mr-10 lg:mr-25">
-                <div className="ml-0 sm:ml-20 lg:ml-40 absolute items-center flex">
+                <div className="ml-0 sm:ml-20 fixed lg:ml-40  items-center flex">
 
                     <button
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                        className="bg-white/10 text-white p-2 sm:p-3 rounded-full fixed border border-white/20 hover:bg-white/20"
+                        className="bg-white/10 text-white p-2 sm:p-3 rounded-full  border border-white/20 hover:bg-white/20"
                     >
                         <FaFilter />
 
@@ -195,7 +195,7 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
 
 
                     {isDropdownOpen && (
-                        <div className="absolute flex flex-col sm:flex-row right-0 sm:right-12 w-40 sm:w-auto bg-zinc-900 border border-white/20 rounded-2xl overflow-hidden z-10">
+                        <div className="absolute  flex flex-col sm:flex-row right-0 sm:right-12 w-40 sm:w-auto bg-zinc-900 border border-white/20 rounded-2xl overflow-hidden z-10">
 
                             <button
                                 onClick={() => {
