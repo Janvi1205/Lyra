@@ -40,7 +40,7 @@ const Testimonials = ({ data }) => {
     return (
         <div className="bg-[#7f0d247e] min-h-[570px] py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
             <div className="text-3xl sm:text-4xl lg:text-5xl text-center text-white mb-8 sm:mb-12 lg:mb-16">
-                What They Say
+                Why They Choose Lyra
             </div>
             
             <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-20">

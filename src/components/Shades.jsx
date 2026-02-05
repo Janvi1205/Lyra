@@ -187,7 +187,7 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
 
                     <button
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                        className="bg-white/10 text-white p-2 sm:p-3 rounded-full border border-white/20 hover:bg-white/20"
+                        className="bg-white/10 text-white p-2 sm:p-3 rounded-full fixed border border-white/20 hover:bg-white/20"
                     >
                         <FaFilter />
 
@@ -196,7 +196,6 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
 
                     {isDropdownOpen && (
                         <div className="absolute flex flex-col sm:flex-row right-0 sm:right-12 w-40 sm:w-auto bg-zinc-900 border border-white/20 rounded-2xl overflow-hidden z-10">
-
 
                             <button
                                 onClick={() => {

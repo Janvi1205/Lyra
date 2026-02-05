@@ -1,4 +1,7 @@
+import {Link} from "react-router-dom";
+
 const Footer = () => {
+
     return (
         <footer className="bg-black text-white py-10 px-4 sm:px-6 lg:px-8">
            
@@ -23,8 +26,10 @@ const Footer = () => {
                         <div>
                             <h3 className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">SHOP</h3>
                             <ul className="space-y-2 text-gray-400 text-xs sm:text-sm">
+                               <Link to="/shades">
                                 <li className="hover:text-white cursor-pointer transition-colors">All Shades</li>
-                                <li className="hover:text-white cursor-pointer transition-colors">Best Sellers</li>
+                               </Link>
+                                <li className="hover:text-white cursor-pointer mt-2 transition-colors">Best Sellers</li>
                                 <li className="hover:text-white cursor-pointer transition-colors">Sets & Gifts</li>
                                 <li className="hover:text-white cursor-pointer transition-colors">Accessories</li>
                             </ul>
@@ -60,7 +65,6 @@ const Footer = () => {
                             © 2025 LYRA Cosmetics. All rights reserved.
                         </p>
 
-                      
                         <div className="flex gap-4 sm:gap-6 text-gray-500 text-xs order-3 sm:order-2">
                             <span className="hover:text-white cursor-pointer transition-colors">Privacy Policy</span>
                             <span className="hover:text-white cursor-pointer transition-colors">Terms of Service</span>

@@ -185,3 +185,4 @@ const Trendingsection = () => {
 }
 
 export default Trendingsection;
+

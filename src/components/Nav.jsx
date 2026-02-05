@@ -50,19 +50,15 @@ const Nav = ({cart}) => {
   return (
 
     <div className="sticky top-2 z-50 w-full flex flex-col items-center px-2 sm:px-0">
-
-
       <div
         ref={navInnerRef}
-        className="glass-navbar w-full sm:w-[95%] md:w-[90%] lg:w-[88%] h-14 sm:h-16 rounded-xl flex justify-between items-center px-4 sm:px-6 md:px-8"
+        className="glass-navbar  w-full sm:w-[95%] md:w-[90%] lg:w-[88%] h-14 sm:h-16 rounded-xl flex justify-between items-center px-4 sm:px-6 md:px-8"
       >
        
-        <button 
-          onClick={() => setIsMenuOpen(!isMenuOpen)} 
-          className="sm:hidden text-white cursor-pointer"
-        >
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className = "sm:hidden text-white cursor-pointer">
           {isMenuOpen ? <IoClose size={24} /> : <HiMenuAlt3 size={24} />}
         </button>
+
 
         <div className="hidden sm:flex gap-5 md:gap-7">
           <button onClick={() => scrollToSection('hero')} className="text-white cursor-pointer text-base">Home</button>
@@ -73,8 +69,9 @@ const Nav = ({cart}) => {
         </div>
 
      
-        <img className="h-12 sm:h-16 md:h-20 absolute left-1/2 transform -translate-x-1/2" src="/Lyra.png" alt="logo" />
-
+        <Link to="/">
+            <img className="h-12 sm:h-16 md:h-20  left-1/2 transform -translate-x-1/2" src="/Lyra.png" alt="logo" />
+        </Link>
        
         <Link to="/mycart" onClick={() => window.scrollTo(0, 0)}>
           <button className='relative'>
