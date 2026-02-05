@@ -195,8 +195,7 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
 
 
                     {isDropdownOpen && (
-                        <div className="absolute  flex flex-col sm:flex-row right-0 sm:right-12 w-40 sm:w-auto bg-zinc-900 border border-white/20 rounded-2xl overflow-hidden z-10">
-
+                        <div className="absolute mt-60 lg:mt-0  md:mt-0  flex flex-col sm:flex-row right-0 sm:right-12 w-40 sm:w-auto bg-zinc-900 border border-white/20 rounded-2xl overflow-hidden z-50">
                             <button
                                 onClick={() => {
                                     setSelectedFilter("all");
@@ -250,13 +249,13 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
                 <p className="text-gray-300 text-animate text-sm sm:text-base lg:text-lg justify-center flex text-center px-4">from subtle whispers of color to bold declarations of self-expression</p>
             </div>
 
-            <div className="flex justify-center mt-40    sm:mt-20 lg:mt-72">
+            <div className="flex justify-center mt-40 sm:mt-20 lg:mt-72">
                 <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 space-y-6 sm:space-y-8 lg:space-y-12 ">
                     {filteredData.map((elem) => (
                         <div key={elem.id} className="lips-card cursor-pointer" onClick={() => handleclick(elem)}>
                             <div className="h-60 sm:h-72 lg:h-90 w-full sm:w-52 lg:w-60 rounded-2xl flex flex-col overflow-hidden group relative">
 
-                                <img className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40" src={elem.image} alt="" />
+                                <img loading="lazy" className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-40" src={elem.image} alt="" />
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <h3 className="text-white text-lg sm:text-xl lg:text-2xl font-semibold text-center px-4">{elem.colorname}</h3>
                                 </div>

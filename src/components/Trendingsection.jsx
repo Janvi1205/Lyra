@@ -152,9 +152,9 @@ const Trendingsection = () => {
             </div>
 
             <div className="relative w-[250px] h-[280px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px] mx-auto">
-                <img className="lip absolute inset-0" src="/lipstick1.png" alt="" />
-                <img className="lip absolute inset-0" src="/lipstick2.png" alt="" />
-                <img className="lip absolute inset-0" src="/lipstick3.png" alt="" />
+                <img loading="lazy" className="lip absolute inset-0" src="/lipstick1.png" alt="" />
+                <img loading="lazy" className="lip absolute inset-0" src="/lipstick2.png" alt="" />
+                <img loading="lazy" className="lip absolute inset-0" src="/lipstick3.png" alt="" />
             </div>
 
             <div className="relative lg:absolute lg:-mt-60 left-0 right-0 px-4 sm:px-6 md:px-8 flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start gap-6 lg:gap-0 max-w-7xl mx-auto mt-24 ">
