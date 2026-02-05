@@ -49,14 +49,14 @@ const Nav = ({cart}) => {
 
   return (
 
-    <div className="sticky top-2 z-50 w-full flex flex-col items-center px-2 sm:px-0">
+    <div className="sticky top-2  z-50 w-full flex flex-col items-center px-2 sm:px-0">
       <div
         ref={navInnerRef}
         className="glass-navbar  w-full sm:w-[95%] md:w-[90%] lg:w-[88%] h-14 sm:h-16 rounded-xl flex justify-between items-center px-4 sm:px-6 md:px-8"
       >
        
         <button onClick={() => setIsMenuOpen(!isMenuOpen)} className = "sm:hidden text-white cursor-pointer">
-          {isMenuOpen ? <IoClose size={24} /> : <HiMenuAlt3 size={24} />}
+          {isMenuOpen ? <IoClose size={24} /> : <HiMenuAlt3 size={26} />}
         </button>
 
 
@@ -69,8 +69,8 @@ const Nav = ({cart}) => {
         </div>
 
      
-        <Link to="/">
-            <img className="h-12 sm:h-16 md:h-20  left-1/2 transform -translate-x-1/2" src="/Lyra.png" alt="logo" />
+        <Link to="/"onClick={() => window.scrollTo(0, 0)} >
+            <img className="h-12 sm:h-16 md:h-20   left-1/2 transform -translate-x-1/2" src="/Lyra.png" alt="logo" />
         </Link>
        
         <Link to="/mycart" onClick={() => window.scrollTo(0, 0)}>
@@ -90,7 +90,7 @@ const Nav = ({cart}) => {
 
     
       {isMenuOpen && (
-        <div className="sm:hidden glass-navbar w-full mt-2 rounded-xl py-4 px-6 flex flex-col gap-4">
+        <div className="sm:hidden glass-navbar  absolute w-full mt-10 rounded-xl py-4 px-6 flex flex-col gap-4">
           <button onClick={() => scrollToSection('hero')} className="text-white cursor-pointer text-left py-2 border-b border-white/10">Home</button>
           <Link to="/shades" onClick={() => { window.scrollTo(0, 0); setIsMenuOpen(false); }}>
             <button className="text-white cursor-pointer text-left py-2 border-b border-white/10 w-full">Shades</button>
