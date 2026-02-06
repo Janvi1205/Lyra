@@ -30,7 +30,7 @@ The project focuses on smooth UI interactions, clean layouts, and engaging produ
  
 ---
 
-##🌟 What I Learned
+## 🌟 What I Learned
 
 Implementing animations using GSAP
 
@@ -42,5 +42,5 @@ Improving UI/UX for product websites
 
 Handling frontend project workflow
 
-##🙋‍♀️ Author
+## 🙋‍♀️ Author
 Janvi
