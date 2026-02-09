@@ -274,6 +274,7 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
                 cart={cart}
                 removeFromCart={removeFromCart}
             />
+         
 
         </div>
 

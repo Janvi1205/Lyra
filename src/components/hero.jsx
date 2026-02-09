@@ -69,7 +69,7 @@ const Hero = () => {
           <p className="text-white/70 mt-4 md:mt-6 lg:mt-7 leading-6 md:leading-7 text-sm md:text-base max-w-xs sm:max-w-sm md:max-w-md">
             Discover richly pigmented lip colors in satin, velvet, and matte finishes crafted to elevate your everyday beauty. From effortless daytime elegance to bold evening statements, Lyra delivers comfort, color, and confidence in every swipe.
           </p>
-        </div>
+        </div>  
 
 
         <div className="relative z-10 px-6 md:px-0 md:-mt-16 lg:-mt-23 md:ml-12 lg:ml-22">
