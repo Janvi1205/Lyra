@@ -53,7 +53,7 @@ const Hero = () => {
       />
 
 
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 md:via-black/40 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-r from-black via-black/70 md:via-black/40 to-transparent" />
 
 
       <div className="flex flex-col items-start justify-center h-full">
