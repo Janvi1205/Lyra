@@ -146,7 +146,7 @@ const Trendingsection = () => {
 
 
     return (
-        <div className="min-h-[500px] sm:min-h-[550px] md:min-h-[600px] lg:h-[700px] section-bg py-8 sm:py-10 overflow-hidden">
+        <div className="min-h-125 sm:min-h-[550px] md:min-h-[600px] lg:h-[700px] section-bg py-8 sm:py-10 overflow-hidden">
             <div className="flex justify-center">
                 <h1 className="text-white text-3xl lg:text-5xl font-serif sm:text-3xl mt-6 sm:mt-10">Trending Now</h1>
             </div>
