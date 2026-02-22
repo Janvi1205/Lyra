@@ -7,11 +7,6 @@ import { FaFilter } from "react-icons/fa";
 import { Waveform } from 'ldrs/react'
 import 'ldrs/react/Waveform.css'
 
-
-
-
-
-
 const Shades = ({ addtocart, cart, removeFromCart }) => {
     const gridRef = useRef(null);
 
@@ -22,6 +17,7 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+
 
     useEffect(() => {
         fetchProducts();
@@ -79,7 +75,7 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
 
                 if (centerIndex < row.length - 1) {
                     neighbors.push(row[centerIndex + 1]);
-                }
+                }  
 
                 if (row.length >= 3) {
                     if (row[0] && row[0] !== center && !neighbors.includes(row[0])) edges.push(row[0]);
@@ -92,7 +88,9 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
                         trigger: center,
                         start: "top 100%",
                         end: window.innerWidth === 1024 ? "top 2%" : "top 30%",
-                        scrub: 1,
+                        scrub:1,
+                        
+                        
                     }
                 })
 
@@ -131,18 +129,13 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
                 y: 0,
                 opacity: 1,
                 letterSpacing: "normal",
-                stagger: 0.2,
-                duration: 1.2,
-                ease: "power3.out"
-
-
+                ease: "power3.out",
+                stagger:0.2,
+                duration:1.2,
             }
         )
         return () => ctx.revert();
     }, [products]);
-
-
-
 
 
     if (loading) {
@@ -164,7 +157,7 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
         return (
             <div className="min-h-screen flex flex-col justify-center items-center px-4 text-center gap-4">
                 <p className="text-white text-base sm:text-lg lg:text-xl">
-                    Failed to load products
+                    Failed to load products 
                 </p>
 
                 <button
@@ -189,10 +182,10 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         className="bg-white/10 text-white p-2 sm:p-3 rounded-full  border border-white/20 hover:bg-white/20 relative z-50"
                     >
-                        <FaFilter />
+                        <FaFilter/>
 
                     </button>
-
+ 
 
                     {isDropdownOpen && (
                         <div className="absolute mt-60 lg:mt-0  md:mt-0  flex flex-col sm:flex-row right-0 sm:right-12 w-40 sm:w-auto bg-zinc-900 border border-white/20 rounded-2xl overflow-hidden z-50">
@@ -224,7 +217,7 @@ const Shades = ({ addtocart, cart, removeFromCart }) => {
                                     setIsDropdownOpen(false);
                                 }}
                                 className="w-full px-4 sm:px-6 py-3 text-left text-white hover:bg-white/10"
-                            >
+                            > 
                                 Velvet
                             </button>
 
